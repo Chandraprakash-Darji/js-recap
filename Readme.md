@@ -2,11 +2,11 @@
 
 **Navigate to the Topic**
 
-1. [Basis of JS](basis-of-jS)
-2. [The 7 Primitive Data types](the-7-primitive-data-types)
-3. [Operators in JS](operators-in-js)
-4. [Template literals (Template strings)](template-literals-template-strings)
-5. [Conditional Statment ( if-Else )](conditional-statment--if-Else-)
+1. [Basis of JS](#basis-of-jS)
+2. [The 7 Primitive Data types](#the-7-primitive-data-types)
+3. [Operators in JS](#operators-in-js)
+4. [Template literals (Template strings)](#template-literals-template-strings)
+5. [Conditional Statment ( if-Else )](#conditional-statment--if-Else-)
 
 ## Basis of JS
 
@@ -211,7 +211,7 @@ var d = a > b ? b : a; // value of d would be 5
 ```js
 let a = 5,
   b = 10;
-console.log("Fifteen is " + (a + b) + " and\nnot " + (2 * a + b) + ".");
+console.log("Fifteen is " + (a + b) + " and \n not " + (2 * a + b) + ".");
 // "Fifteen is 15 and
 // not 20."
 ```
@@ -244,8 +244,8 @@ if (age >= 18) {
 
 ## Type Conversion and Coercion
 
-- [Type Conversion](type-conversion) Changing type of the Data explicitly.
-- [Type Coercion](type-coercion) Javascript changing type of the Data implicitly.
+- [Type Conversion](#type-conversion) Changing type of the Data explicitly.
+- [Type Coercion](#type-coercion) Javascript changing type of the Data implicitly.
 
 ### Type Conversion
 
@@ -260,6 +260,23 @@ console.log(Number("ChandraPrakash")); // NaN
 // String() for Number to String
 console.log(String(23)); // 23
 ```
+
+#### Falsy values
+
+[ 0 , "" , undefined , null , NaN , false ] are false if they are converted to Boolean
+
+```js
+console.log(Boolean(0)); // false
+console.log(Boolean("")); // false
+console.log(Boolean(NaN)); // false
+console.log(Boolean(false)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean(null)); // false
+```
+
+#### Truely Value
+
+All values are truely if it is not [ 0 , "" , undefined , null , NaN , false ]
 
 ### Type Coercion
 
