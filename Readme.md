@@ -6,7 +6,8 @@
 2. [The 7 Primitive Data types](#the-7-primitive-data-types)
 3. [Operators in JS](#operators-in-js)
 4. [Template literals (Template strings)](#template-literals-template-strings)
-5. [Conditional Statment ( if-Else )](#conditional-statment--if-Else-)
+5. [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
+6. [Type Conversion and Coercion](#type-conversion-and-coercion)
 
 ## Basis of JS
 
@@ -294,4 +295,22 @@ console.log("23" > "10"); // true
 let n = "1" + 1; // 11
 n = n - 1; // 10
 console.log(n);
+```
+
+## Switch Statment
+
+```js
+switch (
+  new Date().getDay() // input is current day
+) {
+  case 6: // if (day == 6)
+    text = "Saturday";
+    break;
+  case 0: // if (day == 0)
+    text = "Sunday";
+    break;
+  default:
+    // else...
+    text = "Whatever";
+}
 ```
