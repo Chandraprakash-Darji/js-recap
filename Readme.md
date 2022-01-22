@@ -8,6 +8,8 @@
 4. [Template literals (Template strings)](#template-literals-template-strings)
 5. [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
 6. [Type Conversion and Coercion](#type-conversion-and-coercion)
+7. [Functions](#functions)
+7. [Arrays](#arrays)
 
 ## Basis of JS
 
@@ -340,4 +342,62 @@ const yearsUntilRetirment = (birthYear, firstName) => {
   return `${firstName} retires in ${retirment} years`;
 };
 console.log(yearsUntilRetirment(2002, "rega"));
+```
+
+## Arrays
+
+```js
+// Methoda 1 of declaring Arrays
+const friends = ["Ankit", "Dave", "Jonas"];
+console.log(friends);
+
+// Method 2 of Declaring Arrays
+const years = new Array(1991, 1992, 1993, 1994, 1995, 1996, 1997);
+console.log(years);
+
+// Access the Elements
+console.log(friends[0], years[3]);
+
+// length of Arrays
+console.log(friends.length);
+
+// Last item of Array
+console.log(friends[friends.length - 1]);
+
+// Changing Element
+friends[1] = "Jay";
+console.log(friends);
+
+// Diffrent type of Data
+const chandraPrakash = [
+  "ChandraPrakash",
+  "Darji",
+  2022 - 2002,
+  "India",
+  friends,
+];
+console.log(chandraPrakash);
+
+// Pushing Element
+const NewLength = friends.push("C2"); // Element is pushed and NewLenght is Returned
+console.log(friends, NewLength);
+
+// Push Element at index 0
+friends.unshift("Raj");
+console.log(friends);
+
+// Remove Element
+const popedValue = friends.pop();
+console.log(friends, popedValue);
+
+// Remove first Element
+friends.shift();
+console.log(friends);
+
+// find Element
+console.log(friends.indexOf("Jay")); // 1
+console.log(friends.indexOf("Jay2")); // -1 means not Exist
+
+// check if exist
+console.log(friends.includes("Jay")); // true
 ```
