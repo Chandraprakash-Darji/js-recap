@@ -43,13 +43,11 @@ comment */
 // One line
 ```
 
-5. Functions
+6. Strict mode
 
 ```js
-function addNumbers(a, b) {
-  return a + b;
-}
-x = addNumbers(1, 2);
+"use strict"; // Use strict mode to write secure code
+x = 1; // Throws an error because variable is not declared
 ```
 
 ## The 7 Primitive Data types
@@ -313,4 +311,33 @@ switch (
     // else...
     text = "Whatever";
 }
+```
+
+## Functions
+
+```js
+// Function Declaration // Pros we can call Before Declaration
+function addNumbers(a, b) {
+  return a + b;
+}
+x = addNumbers(1, 2);
+console.log(x); // 3
+
+// Function Expression  // Can't call before Declration
+const birthYear = 2002;
+const calcAge = function (birthYear) {
+  return 2022 - birthYear;
+};
+console.log(calcAge(birthYear)); // 20
+
+// Arow function
+const calcAge2 = (birthYear) => 2022 - birthYear;
+
+// Arrow functions with more than one Variablea
+const yearsUntilRetirment = (birthYear, firstName) => {
+  const age = 2022 - birthYear;
+  const retirment = 65 - age;
+  return `${firstName} retires in ${retirment} years`;
+};
+console.log(yearsUntilRetirment(2002, "rega"));
 ```
