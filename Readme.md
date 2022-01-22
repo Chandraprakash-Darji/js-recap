@@ -1,5 +1,7 @@
 # Notes for Javascript
 
+**[Live Site Link](https://chandraprakash-darji.github.io/Js-notes/)**
+
 **Navigate to the Topic**
 
 1. [Basis of JS](#basis-of-jS)
@@ -9,7 +11,8 @@
 5. [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
 6. [Type Conversion and Coercion](#type-conversion-and-coercion)
 7. [Functions](#functions)
-7. [Arrays](#arrays)
+8. [Arrays](#arrays)
+9. [Objects](#objects)
 
 ## Basis of JS
 
@@ -400,4 +403,31 @@ console.log(friends.indexOf("Jay2")); // -1 means not Exist
 
 // check if exist
 console.log(friends.includes("Jay")); // true
+```
+
+## Objects
+
+```js
+const chandraPrakash = {
+  firstName: "ChandraPrakah",
+  lastName: "Darji",
+  age: 2022 - 2002,
+  job: "Student",
+  languages: ["JavaScript0", "Python", "Html", "CSS"],
+};
+console.log(chandraPrakash);
+
+// Accesing Element
+console.log(chandraPrakash.firstName); // Dot Notation
+console.log(chandraPrakash["job"]); // Bracket Notation
+
+// In Bracket Notation Expresion are Allowded
+const nameKey = 'Name';
+console.log(chandraPrakash["first" + nameKey])
+console.log(chandraPrakash["last" + nameKey])
+
+// Adding a Element in Objects
+chandraPrakash.location = "india";
+chandraPrakash["twitter"] = "@chandra_7852"
+
 ```
