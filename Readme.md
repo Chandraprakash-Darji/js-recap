@@ -14,6 +14,7 @@
 8. [Arrays](#arrays)
 9. [Objects](#objects)
 10. [Loops](#loops)
+11. [DOM Manuplication](#dom-Manuplication)
 
 ## Basis of JS
 
@@ -555,4 +556,20 @@ while (dice !== 6) {
   dice = Math.trunc(Math.random() * 7);
   if (dice === 6) console.log("Loops is about to end");
 }
+```
+
+## DOM Manuplication
+
+**Document Object Model** Structured Representation Of Html Documents. Allows Javascript To Access Html Elements And Styles To Manipulate Them.
+
+- DOM tree Structure _Credits Jonas Schmedtmann JS Course_
+  - ![Dom Tree](./DOM/DOM_tree.png)
+    DOM is not Part of JavaScript ...
+    Javscript interact with DOM by WEB API's that browser Implements ...
+
+```js
+let scoreLabel = document.querySelector(".score");
+document.querySelector("body").style.backgroundColor = "#60b347";
+againBtn.addEventListener("click", function () {}
+messageTxt.textContent = "Start guessing...";
 ```
