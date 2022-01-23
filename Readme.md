@@ -414,20 +414,41 @@ const chandraPrakash = {
   age: 2022 - 2002,
   job: "Student",
   languages: ["JavaScript0", "Python", "Html", "CSS"],
+  drivingLicense: false,
+  // can also hold a function beacuse function is a datatype
+  calcAge: function (birthYear) {
+    return 2022 - birthYear;
+  },
+  calcAgeThis: function () {
+    return 2022 - this.birthYear; // Takes value from object
+  },
+  getSummary: function () {
+    console.log(
+      `${this.firstName} is a ${
+        this.job
+      } of ${this.calcAgeThis()} learnig today ${this.languages[0]} with ${
+        this.drivingLicense ? "a" : "no"
+      } driving License`
+    );
+  },
 };
 console.log(chandraPrakash);
+
+// Calling function
+console.log(chandraPrakash.calcAge(2002));
+console.log(chandraPrakash.calcAgeThis());
+chandraPrakash.getSummary();
 
 // Accesing Element
 console.log(chandraPrakash.firstName); // Dot Notation
 console.log(chandraPrakash["job"]); // Bracket Notation
 
 // In Bracket Notation Expresion are Allowded
-const nameKey = 'Name';
-console.log(chandraPrakash["first" + nameKey])
-console.log(chandraPrakash["last" + nameKey])
+const nameKey = "Name";
+console.log(chandraPrakash["first" + nameKey]);
+console.log(chandraPrakash["last" + nameKey]);
 
 // Adding a Element in Objects
 chandraPrakash.location = "india";
-chandraPrakash["twitter"] = "@chandra_7852"
-
+chandraPrakash["twitter"] = "@chandra_7852";
 ```
