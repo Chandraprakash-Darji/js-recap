@@ -13,6 +13,7 @@
 7. [Functions](#functions)
 8. [Arrays](#arrays)
 9. [Objects](#objects)
+10. [Loops](#loops)
 
 ## Basis of JS
 
@@ -451,4 +452,107 @@ console.log(chandraPrakash["last" + nameKey]);
 // Adding a Element in Objects
 chandraPrakash.location = "india";
 chandraPrakash["twitter"] = "@chandra_7852";
+```
+
+## Loops
+
+**For Loops**
+
+```js
+for (let rep = 0; rep <= 10; rep++) {
+  console.log(`Hello World ${rep}`);
+}
+/* output =>  Hello World 0
+              Hello World 1
+              Hello World 2
+              Hello World 3
+              Hello World 4
+              Hello World 5
+              Hello World 6
+              Hello World 7
+              Hello World 8
+              Hello World 9
+              Hello World 10 */
+
+// Looping through Array
+const chandraPrakash = [
+  "ChandraPrakah",
+  "Darji",
+  2022 - 2002,
+  "Student",
+  ["JavaScript0", "Python", "Html", "CSS"],
+];
+const type = [];
+for (let index = 0; index < chandraPrakash.length; index++) {
+  // reading
+  console.log(chandraPrakash[index]);
+  // filling the array
+  type[index] = typeof chandraPrakash[index];
+}
+
+// Backword Loop
+for (let index = chandraPrakash.length - 1; index >= 0; index--) {
+  console.log(chandraPrakash[index]);
+}
+/* output ->  ['JavaScript0', 'Python', 'Html', 'CSS']
+              Student
+              20
+              Darji
+              ChandraPrakah */
+```
+
+**Continue**
+
+```js
+// Continue -> When loop gets Continue the current itreation
+// is stopped and skipped to next one ...
+for (let index = 0; index < chandraPrakash.length; index++) {
+  if (typeof chandraPrakash[index] !== "string") continue;
+  console.log(chandraPrakash[index]);
+}
+/* Output -> ChandraPrakah
+              Darji
+              Student*/
+```
+
+**Break**
+
+```js
+// Break -> When loop gets Break the whole is breaked
+// and all itreation will not happen
+for (let index = 0; index < chandraPrakash.length; index++) {
+  if (typeof chandraPrakash[index] === "number") break;
+  console.log(chandraPrakash[index]); // no item will print if number is found
+}
+/* Output -> ChandraPrakah
+              Darji*/
+```
+
+**Nested Loops**
+
+```js
+for (let i = 0; i < 5; i++) {
+  console.log(`---------- Exersie Set No ${i} ----------`);
+  for (let j = 0; j < i; j++) {
+    console.log(`---- Exersie lift ${j}`);
+  }
+}
+```
+
+**While loop**
+
+```js
+// while loop -> Loop that doesn't require a counter
+let rep = 1;
+while (rep <= 3) {
+  console.log(`( ${rep} )is counter`);
+  rep++;
+}
+// Loop without Counter -> If we dont know how many time loop will run
+let dice = Math.trunc(Math.random() * 6);
+while (dice !== 6) {
+  console.log(dice);
+  dice = Math.trunc(Math.random() * 7);
+  if (dice === 6) console.log("Loops is about to end");
+}
 ```
