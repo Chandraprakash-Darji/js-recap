@@ -15,6 +15,8 @@
 9. [Objects](#objects)
 10. [Loops](#loops)
 11. [DOM Manuplication](#dom-Manuplication)
+12. [Developer Skills](#Developer-Skills-Credits-Jonas-Schmedtmannhttpstwittercomjonasschmedtman-JS-Course)
+13. [How JavaScript Works](#how-javascript-works)
 
 ## Basis of JS
 
@@ -481,7 +483,7 @@ const chandraPrakash = [
   "Darji",
   2022 - 2002,
   "Student",
-  ["JavaScript0", "Python", "Html", "CSS"],
+  ["JavaScript", "Python", "Html", "CSS"],
 ];
 const type = [];
 for (let index = 0; index < chandraPrakash.length; index++) {
@@ -495,7 +497,7 @@ for (let index = 0; index < chandraPrakash.length; index++) {
 for (let index = chandraPrakash.length - 1; index >= 0; index--) {
   console.log(chandraPrakash[index]);
 }
-/* output ->  ['JavaScript0', 'Python', 'Html', 'CSS']
+/* output ->  ['JavaScript', 'Python', 'Html', 'CSS']
               Student
               20
               Darji
@@ -562,14 +564,251 @@ while (dice !== 6) {
 
 **Document Object Model** Structured Representation Of Html Documents. Allows Javascript To Access Html Elements And Styles To Manipulate Them.
 
-- DOM tree Structure _Credits Jonas Schmedtmann JS Course_
-  - ![Dom Tree](./DOM/DOM_tree.png)
-    DOM is not Part of JavaScript ...
-    Javscript interact with DOM by WEB API's that browser Implements ...
+DOM tree Structure _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
+
+![Dom Tree](./DOM/DOM_tree.png)
+DOM is not Part of JavaScript ...
+Javscript interact with DOM by WEB API's that browser Implements ...
+
+- [Accessing Dom Elements](#accessing-dom-elements)
+- [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
+- [Create New DOM Elements](#Create-New-DOM-elements)
+- [Add Elements to the DOM](#Add-Elements-to-the-DOM)
+- [Add Elements to the DOM cont](#Add-Elements-to-the-DOM-cont)
+- [Add/Remove/Toggle/Check Classes](#AddRemoveToggleCheck-Classes)
+- []()
+
+### Accessing Dom Elements
 
 ```js
-let scoreLabel = document.querySelector(".score");
-document.querySelector("body").style.backgroundColor = "#60b347";
-againBtn.addEventListener("click", function () {}
-messageTxt.textContent = "Start guessing...";
+// Returns a reference to the element by its ID.
+document.getElementById("someid");
+
+// Returns an array-like object of all child elements which have all of the given class names.
+document.getElementsByClassName("someclass");
+
+// Returns an HTMLCollection of elements with the given tag name.
+document.getElementsByTagName("LI");
+
+// Returns the first element within the document that matches the specified group of selectors.
+document.querySelector(".someclass");
+
+// Returns a list of the elements within the document (using depth-first pre-order traversal of the document's nodes)
+// that match the specified group of selectors.
+document.querySelectorAll("div.note, div.alert");
 ```
+
+### Grab Children/Parent Node(s)
+
+```javascript
+// Get child nodes
+var stored = document.getElementById("someid");
+var children = stored.childNodes;
+
+// Get parent node
+var parental = children.parentNode;
+```
+
+### Create New DOM Elements
+
+```javascript
+// create new elments
+var newHeading = document.createElement("h1");
+var newParagraph = document.createElement("p");
+
+// create text nodes for new elements
+var h1Text = document.createTextNode("This is a nice header text!");
+var pText = document.createTextNode("This is a nice paragraph text!");
+
+// attach new text nodes to new elements
+newHeading.appendChild(h1Text);
+newParagraph.appendChild(pText);
+
+// elements are now created and ready to be added to the DOM.
+```
+
+### Add Elements to the DOM
+
+```javascript
+// grab element on page you want to add stuff to
+var firstHeading = document.getElementById("firstHeading");
+
+// add both new elements to the page as children to the element we stored in firstHeading.
+firstHeading.appendChild(newHeading);
+firstHeading.appendChild(newParagraph);
+
+// can also insert before like so
+
+// get parent node of firstHeading
+var parent = firstHeading.parentNode;
+
+// insert newHeading before FirstHeading
+parent.insertBefore(newHeading, firstHeading);
+```
+
+### Add Elements to the DOM cont.
+
+Suppose you have the following HTML:
+
+```html
+<div id="box1">
+  <p>Some example text</p>
+</div>
+<div id="box2">
+  <p>Some example text</p>
+</div>
+```
+
+You can insert another snippet of HTML between #box1 and #box2:
+
+```javascript
+var box2 = document.getElementById("box2");
+box2.insertAdjacentHTML("beforebegin", "<div><p>This gets inserted.</p></div>");
+
+// beforebegin - The HTML would be placed immediately before the element, as a sibling.
+// afterbegin - The HTML would be placed inside the element, before its first child.
+// beforeend - The HTML would be placed inside the element, after its last child.
+// afterend - The HTML would be placed immediately after the element, as a sibling.
+```
+
+### Add/Remove/Toggle/Check Classes
+
+```javascript
+// grab element on page you want to use
+var firstHeading = document.getElementById("firstHeading");
+
+// will remove foo if it is a class of firstHeading
+firstHeading.classList.remove("foo");
+
+// will add the class 'anotherClass' if one does not already exist
+firstHeading.classList.add("anotherclass");
+
+// add or remove multiple classes
+firstHeading.classList.add("foo", "bar");
+firstHeading.classList.remove("foo", "bar");
+
+// if visible class is set remove it, otherwise add it
+firstHeading.classList.toggle("visible");
+
+// will return true if it has class of 'foo' or false if it does not
+firstHeading.classList.contains("foo");
+```
+
+## Developer Skills _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
+
+### HOW TO FAIL 🤦 AT LEARNING HOW TO CODE
+
+- 💥 He didn’t have a clear goal at the beginning of his journey.
+- 💥 He started by watching courses and reading tutorials, but he would just copy. the code without caring how it works. Sometimes he would just copy and paste code!
+- 💥 He didn’t reinforce what he was learning by doing small challenges or taking notes.
+- 💥 He didn’t practice coding, and didn’t come up with his own project ideas.
+- 💥 He quickly became frustrated when his code was not perfectly clean or efficient.
+- 💥 He lost motivation because he thought he could never know everything.
+- 💥 He was learning in isolation.
+- 💥 After finishing a couple of courses, he thought he now was a web developer and could start applying to jobs. But he couldn’t even build an app on his own!
+
+### HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE
+
+- 💥 He didn’t have a clear goal at the beginning of his journey.
+
+  - 👌 Set a specific, measurable, realistic and time-based goal
+  - 👌 Know exactly why you are learning to code: Switching careers? Finding a better job?
+  - 👌 Imagine a big project you want to be able to build!
+  - 👌 Research technologies you need and then learn them.
+
+- 💥 He would just copy the code without caring how it works. Sometimes he would just copy and paste code!
+
+  - 👌 Understand the code that you’re studying and typing
+  - 👌 Always type the code, don’t copy-paste!
+
+- 💥 He didn’t reinforce what he was learning by doing small challenges or taking notes.
+
+  - 👌 After you learn a new feature or concept, use it immediately.
+  - 👌 Take notes
+  - 👌 Challenge yourself and practice with small coding exercises and challenges.
+  - 👌 Don’t be in a hurry to complete the course fast!
+
+- 💥 He didn’t practice coding, and didn’t come up with his own project ideas.
+
+  - 👌 Practicing on your own is the most important thing to do.
+  - 👌 This is NOT optional! Without practice outside of courses, you won’t go anywhere!
+  - 👌 Come up with your own project ideas or copy popular sites or applications, or just parts of them in the beginning.
+  - 👌 Don’t be stuck in “tutorial hell”
+
+- 💥 He quickly became frustrated when his code was not perfectly clean or efficient.
+
+  - 👌 Don’t get stuck trying to write the perfect code!
+  - 👌 Just write tons of code, no matter the quality!
+  - 👌 Clean and efficient code will come with time.
+  - 👌 You can always refactor code later.
+
+- 💥 He lost motivation because he thought he could never know everything.
+
+  - 👌 Embrace the fact that you will nesver you know everything.
+  - 👌 Just focus on what you need to achieve your goal!
+
+- 💥 He was learning in isolation.
+
+  - 👌 Explain new concepts to other people. If you can explain it, you truly understand it!
+  - 👌 Share your goals to make yourself accountable.
+  - 👌 Share your learning progress with the web dev community (#100DaysOfCode, #CodeNewbie, #webdev, etc).
+
+- 💥 After finishing a couple of courses, he thought he now was a web developer and could start applying to jobs.
+
+  - 👌 The biggest misconception that people have!
+  - 👌 Courses are an amazing starting point, but are only the beginning of your journey.
+
+[!how to code process](./DOM/Codingprocess.png)
+
+### HOW TO FAIL 🤦 AT SOLVING PROBLEMS
+
+- **WHENEVER JOHN ENCOUNTERS A PROBLEM:**
+
+  - 💥 He jumps at the problem without much thinking.
+  - 💥 He implements his solution in an unstructured way.
+  - 💥 He gets stressed out when things don’t work.
+  - 💥 He is too proud to research solutions.
+
+- **FIX**
+
+  - 💥 Stay calm and slow down, don’t just jump at a problem without a plan.
+  - 💥 Take a very logical and rational approach (programming is just logic, in the end…).
+  - 💥 Use my 4-step framework to solve any problem.
+
+### 4 STEPS FRAMEWORK TO SOLVE ANY PROBLEM
+
+1. Make sure you 100% understand the problem. Ask the right questions to get a clear picture of the problem.
+2. Divide and conquer: Break a big problem into smaller sub-problems.
+3. Don't be afraid to do as much research as you have to.
+4. For bigger problems, write pseudo-code before writing the actual code.
+
+### WHAT IS A SOFTWARE BUG?
+
+- 💥 Software bug: Defect or problem in a computer program. Basically, any unexpected or unintended behavior of a computer program is a software bug.
+- 💥 Bugs are completely normal in software development!
+- 💥 Debugging: Process of finding, fixing and preventing bugs.
+
+### THE DEBUGGING PROCESS
+
+1. Identify
+
+- 👉 During development
+- 👉 Testing software
+- 👉 User reports duringproduction
+- 👉 Context: browsers,users, etc.
+
+2. Find
+
+- 👉 Developer console (simple code)
+- 👉 Debugger (complexcode)
+
+3. Fix
+
+- 👉 Replace wrong solution with new correct solution
+
+4. Prevent
+
+- 👉 Searching for thesame bug in similar code
+- 👉 Writing tests usingtesting software
+
+## How JavaScript Works
