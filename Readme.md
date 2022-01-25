@@ -15,8 +15,10 @@
 9. [Objects](#objects)
 10. [Loops](#loops)
 11. [DOM Manuplication](#dom-Manuplication)
-12. [Developer Skills](#Developer-Skills-Credits-Jonas-Schmedtmannhttpstwittercomjonasschmedtman-JS-Course)
-13. [How JavaScript Works](#how-javascript-works)
+    **Extra**
+
+- [Developer Skills](#Developer-Skills-Credits-Jonas-Schmedtmannhttpstwittercomjonasschmedtman-JS-Course)
+- [How JavaScript Works](#how-javascript-works)
 
 ## Basis of JS
 
@@ -576,7 +578,6 @@ Javscript interact with DOM by WEB API's that browser Implements ...
 - [Add Elements to the DOM](#Add-Elements-to-the-DOM)
 - [Add Elements to the DOM cont](#Add-Elements-to-the-DOM-cont)
 - [Add/Remove/Toggle/Check Classes](#AddRemoveToggleCheck-Classes)
-- []()
 
 ### Accessing Dom Elements
 
@@ -758,7 +759,7 @@ firstHeading.classList.contains("foo");
   - 👌 The biggest misconception that people have!
   - 👌 Courses are an amazing starting point, but are only the beginning of your journey.
 
-[!how to code process](./DOM/Codingprocess.png)
+[howtocodeprocess](./DOM/Codingprocess.png)
 
 ### HOW TO FAIL 🤦 AT SOLVING PROBLEMS
 
@@ -812,3 +813,49 @@ firstHeading.classList.contains("foo");
 - 👉 Writing tests usingtesting software
 
 ## How JavaScript Works
+
+**What is JavaScript**JAVASCRIPT IS A HIGH-LEVEL, PROTOTYPE-BASED OBJECT-ORIENTED, MULTI-PARADIGM, INTERPRETED OR JUST-IN-TIME COMPILED, DYNAMIC, SINGLE-THREADED, GARBAGE-COLLECTED PROGRAMMING LANGUAGE WITH FIRST-CLASS FUNCTIONS AND A NON-BLOCKING EVENT LOOP CONCURRENCY MODEL. 🤔🤯🤣
+
+### DECONSTRUCTING THE MONSTER DEFINITION
+
+1. **High Level** Developer does NOT have to worry, everything happens automatically
+
+2. **Garbage-Collected** Cleaning the memory so we don’t have to
+
+3. **Interpreted or just-in-time compiled** CONVERT TO MACHINE CODE = COMPILING [More Info Coming Soon](#)
+
+4. **Multi-paradigm** _Paradigm_: An approach and mindset of structuring code, which will direct your coding style and technique.
+
+   - Procedural programming
+   - Object-oriented programming (OOP)
+   - Functional programming (FP)
+
+5. **Prototype-based object-oriented** Buit from prototype [More Info Coming Soon](#)
+
+6. **First-class functions** In a language with first-class functions, functions are simply treated as variables. We can pass them into other functions, and return them from functions.
+
+Passing a function into another function as an argument: First-class functions!
+[More Info Coming Soon](#)
+
+7. **Dynamic** No data type definitions. Types becomes known at runtime.
+
+   ```js
+   let x = 23;
+   ```
+   Data type of variable is automatically changed.
+   ```js
+   x = "chandraPrakash";
+   ```
+
+8. **Single-threaded** && **Non-blocking event loop**
+
+- 👉 Concurrency model: how the JavaScript engine handles multiple tasks happening at the same time.
+- 💥💥 Why do we need that?
+  - 👉 JavaScript runs in one single thread, so it can only do one thing at a time.
+- 💥💥 How do we achieve that?
+  - 👉 Sounds like it would block the single thread. However, we want non-blocking behavior!
+- 💥💥 So what about a long-running task?
+  - 👉 By using an event loop: takes long running tasks, executes them in the “background”, and puts them back in the main thread once they are finished.
+- [More Info Coming Soon](#)
+
+### WHAT IS A JAVASCRIPT ENGINE?
