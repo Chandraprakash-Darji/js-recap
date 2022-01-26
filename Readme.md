@@ -1,6 +1,7 @@
 # Notes for Javascript
 
 **[Live Site Link](https://chandraprakash-darji.github.io/Js-notes/)**
+_(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
 
 **Navigate to the Topic**
 
@@ -15,10 +16,10 @@
 9. [Objects](#objects)
 10. [Loops](#loops)
 11. [DOM Manuplication](#dom-Manuplication)
-    **Extra**
 
-- [Developer Skills](#Developer-Skills-Credits-Jonas-Schmedtmannhttpstwittercomjonasschmedtman-JS-Course)
-- [How JavaScript Works](#how-javascript-works)
+- **Extra**
+- [Developer Skills](#Developer-Skills)
+<!-- - [How JavaScript Works](#how-javascript-works) -->
 
 ## Basis of JS
 
@@ -409,6 +410,22 @@ console.log(friends.indexOf("Jay2")); // -1 means not Exist
 
 // check if exist
 console.log(friends.includes("Jay")); // true
+
+// Distructuring( Unpacking ) the Array
+const arr = [2, 3, 4];
+const [x, y, z] = arr;
+console.log(x, y, z); // 2 3 4
+
+const categories = ["Italian", "Pizzeria", "Vegetarian", "Organic"];
+const [main, , secondary] = restaurant.categories; // mainn = "IOItalian" and secondary = "Vegetarian"
+[secondary, main] = [main, secondary]; // main <-> secondary
+
+const nested = [2, 3, [4, 5]];
+const [i, , [j, k]] = nested;
+console.log(i, j, k); // 2 4 5
+
+const [p, q, r] = [2, 5]; // p = 2 ::: q = 5 ::: r = undefined
+const [p = 1, q = 1, r = 1] = [2]; // p = 2 ::: q = 1 ::: r = 1
 ```
 
 ## Objects
@@ -457,6 +474,83 @@ console.log(chandraPrakash["last" + nameKey]);
 // Adding a Element in Objects
 chandraPrakash.location = "india";
 chandraPrakash["twitter"] = "@chandra_7852";
+
+// Destrucutring Object
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery: function ({
+    starterIndex = 0,
+    mainIndex = 1,
+    time = "20:00",
+    address,
+  }) {
+    console.log(
+      `Order Recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+};
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories); // variable name should exactly same as in Object
+const {
+  // Unpacking with diffrent variable Name
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+  breakMenu: menu = "No Data", // default value if data no Exist
+} = restaurant;
+console.log(restaurantName, hours, tags, breakMenu);
+
+// Mutating variables
+let a = 10,
+  b = 20;
+const obj = { a: 42, b: 65, c: 86 };
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested Objects
+// Method 1
+const { open: openFri, close: closeFri } = openingHours.fri;
+console.log(openFri, closeFri);
+// Method 2
+const {
+  openingHours: {
+    fri: { open: o, close: c },
+  },
+} = restaurant;
+console.log(o, c);
+
+// Unpacking Use in Functions -> no More variable to specifiy as pparameter just one object -> then it will be unpacked
+restaurant.orderDelivery({
+  time: "22:30",
+  address: "402, Saheli Tailor",
+  mainIndex: 2,
+  starterIndex: 2,
+});
+restaurant.orderDelivery({
+  address: "402, Saheli Tailor",
+});
 ```
 
 ## Loops
@@ -566,9 +660,9 @@ while (dice !== 6) {
 
 **Document Object Model** Structured Representation Of Html Documents. Allows Javascript To Access Html Elements And Styles To Manipulate Them.
 
-DOM tree Structure _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
+DOM tree Structure
 
-![Dom Tree](./DOM/DOM_tree.png)
+![Dom Tree](./Images/DOM_tree.png)
 DOM is not Part of JavaScript ...
 Javscript interact with DOM by WEB API's that browser Implements ...
 
@@ -695,7 +789,7 @@ firstHeading.classList.toggle("visible");
 firstHeading.classList.contains("foo");
 ```
 
-## Developer Skills _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
+## Developer Skills
 
 ### HOW TO FAIL 🤦 AT LEARNING HOW TO CODE
 
@@ -759,7 +853,7 @@ firstHeading.classList.contains("foo");
   - 👌 The biggest misconception that people have!
   - 👌 Courses are an amazing starting point, but are only the beginning of your journey.
 
-[howtocodeprocess](./DOM/Codingprocess.png)
+![howtocodeprocess](./Images/Codingprocess.png)
 
 ### HOW TO FAIL 🤦 AT SOLVING PROBLEMS
 
@@ -812,6 +906,7 @@ firstHeading.classList.contains("foo");
 - 👉 Searching for thesame bug in similar code
 - 👉 Writing tests usingtesting software
 
+<!--
 ## How JavaScript Works
 
 **What is JavaScript**JAVASCRIPT IS A HIGH-LEVEL, PROTOTYPE-BASED OBJECT-ORIENTED, MULTI-PARADIGM, INTERPRETED OR JUST-IN-TIME COMPILED, DYNAMIC, SINGLE-THREADED, GARBAGE-COLLECTED PROGRAMMING LANGUAGE WITH FIRST-CLASS FUNCTIONS AND A NON-BLOCKING EVENT LOOP CONCURRENCY MODEL. 🤔🤯🤣
@@ -842,7 +937,9 @@ Passing a function into another function as an argument: First-class functions!
    ```js
    let x = 23;
    ```
+
    Data type of variable is automatically changed.
+
    ```js
    x = "chandraPrakash";
    ```
@@ -859,3 +956,22 @@ Passing a function into another function as an argument: First-class functions!
 - [More Info Coming Soon](#)
 
 ### WHAT IS A JAVASCRIPT ENGINE?
+
+**JS ENGINE** PROGRAM THAT EXECUTES JAVASCRIPT CODE.
+Has two parts Call Stack and Heap
+
+- CALL STACK - where code is executed
+- HEAP - Where objects are stored
+
+### COMPUTER SCIENCE SIDENOTE: COMPILATION VS. INTERPRETATION 😎
+
+1. 💥 Compilation: Entire code is converted into machine code at once, and written to a binary file that can be executed by a computer. ![Compiler work](./Images/HowJsComplie.png)
+
+2. 💥 Interpretation: Interpreter runs through the source code and executes it line by line ![Interpreation Work](./Images/HowJsInterpret.png)
+
+3. 💥 Just-in-time (JIT) compilation: Entire code is converted into machine code at once, then executed immediately. ![Just in Time Compilation](./Images/HowJsJIT.png)
+
+### MODERN JUST-IN-TIME COMPILATION OF JAVASCRIPT
+
+![JustinTime](./Images/JITimg.png)
+-->
