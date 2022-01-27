@@ -417,7 +417,7 @@ const [x, y, z] = arr;
 console.log(x, y, z); // 2 3 4
 
 const categories = ["Italian", "Pizzeria", "Vegetarian", "Organic"];
-const [main, , secondary] = restaurant.categories; // mainn = "IOItalian" and secondary = "Vegetarian"
+const [main, , secondary] = categories; // mainn = "IOItalian" and secondary = "Vegetarian"
 [secondary, main] = [main, secondary]; // main <-> secondary
 
 const nested = [2, 3, [4, 5]];
@@ -426,6 +426,59 @@ console.log(i, j, k); // 2 4 5
 
 const [p, q, r] = [2, 5]; // p = 2 ::: q = 5 ::: r = undefined
 const [p = 1, q = 1, r = 1] = [2]; // p = 2 ::: q = 1 ::: r = 1
+
+//  Unpacking Array at Once by spread Operator
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]]; // [1, 2, 7, 8, 9]
+
+const newArr = [1, 2, ...arr]; // [1, 2, 7, 8, 9]
+// spread operator is comma seprated Value -> It can be Used for all iterable ( string , array , map , sets ) But not Objects
+// this are completing new array
+
+console.log(newArr); // [1, 2, 7, 8, 9]
+console.log(...newArr); // 1 2 7 8 9
+
+// Copy Array
+const myArr = [1,2,3]
+const myCopy = [.myArr] // All elemt of myArr will be Copied
+
+// Spread operator on String
+const str = "Jonas"
+const letters = [...str,"","S."] // ['J', 'o', 'n', 'a', 's', '', 'S.']
+
+// Spread operator are only Used when multiple Values can enter... like you can't use in tmeplte litral
+
+// SPREAD, beacuse it is on RIGHT side of =   -> value seprated by commas
+const arr = [1, 2, ...[3, 4]];
+console.log(arr); // [1, 2, 3, 4]
+
+// REST, beacuse on LEFT side of =   -> variable seprated by Comma
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, others); // 1 2 [3, 4, 5, 6]
+
+const [pizza, resto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, resto, otherFood); // Pizza Pasta ['Risotto', 'Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad']
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays); // {open: 0, close: 24} {thu: {…}, fri: {…}}
+
+// FUNCTIONS
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(2, 3, 4);
+add(2, 3, 4, 5);
+add(2, 4, 54, 45);
+
+const x = [2, 5, 1, 51, 54, 54, 5];
+add(...x);
 ```
 
 ## Objects
@@ -475,6 +528,39 @@ console.log(chandraPrakash["last" + nameKey]);
 chandraPrakash.location = "india";
 chandraPrakash["twitter"] = "@chandra_7852";
 
+// Copying the Object
+const jessica = {
+  firstName: "Jessica",
+  lastName: "Willams",
+  age: 27,
+};
+const jessicaMarried = jessica;
+console.log(jessica); // {firstName: 'Jessica', lastName: 'Willams', age: 27}
+console.log(jessicaMarried); // {firstName: 'Jessica', lastName: 'Willams', age: 27}
+jessicaMarried.lastName = "Dave";
+console.log(jessica); // {firstName: 'Jessica', lastName: 'Dave', age: 27}
+console.log(jessicaMarried); // {firstName: 'Jessica', lastName: 'Dave', age: 27}
+// this will essentially just point to same object ... same object with diffrent names ...
+const jessica2 = {
+  firstName: "Jessica",
+  lastName: "Willams",
+  age: 27,
+  family: ["Bob", "Steven"],
+};
+const jessica2Married = Object.assign({}, jessica2);
+console.log(jessica2); // {firstName: 'Jessica', lastName: 'Willams', age: 27}
+console.log(jessica2Married); // {firstName: 'Jessica', lastName: 'Willams', age: 27}
+jessica2Married.lastName = "Dave";
+console.log(jessica2); // {firstName: 'Jessica', lastName: 'Willams', age: 27}
+console.log(jessica2Married); // {firstName: 'Jessica', lastName: 'Dave', age: 27}
+// This will create new object by combining 2 Objects ...
+
+jessica2Married.family.push("Mary", "John");
+console.log(jessica2); // {firstName: 'Jessica', lastName: 'Willams', age: 27, family: Array(4)}
+console.log(jessica2Married); // {firstName: 'Jessica', lastName: 'Willams', age: 27, family: Array(4)}
+// Object.assign only work for first level... in this Both object array is changed ...
+// to copy prefectly you need to do deep clone
+
 // Destrucutring Object
 const restaurant = {
   name: "Classico Italiano",
@@ -508,6 +594,11 @@ const restaurant = {
   }) {
     console.log(
       `Order Recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is Your delecious Pasta with ${ing1} , ${ing2} and ${ing3} ::: `
     );
   },
 };
@@ -551,6 +642,26 @@ restaurant.orderDelivery({
 restaurant.orderDelivery({
   address: "402, Saheli Tailor",
 });
+
+// Spread Oprator in Object Use
+const ingredient = [
+  prompt("Let's make Pasta! Ingredient 1:"),
+  prompt("Ingredient 2:"),
+  prompt("Ingredient 3:"),
+];
+// Both will work
+restaurant.orderPasta(ingredient[0], ingredient[1], ingredient[2]);
+restaurant.orderPasta(...ingredient);
+// Spread operator will work Better
+
+// ES2018 we can use ... spread opertor on Objects
+const newRestaurant = { ...restaurant, founder: "Gessiuf", founderYear: 1994 };
+console.log(newRestaurant);
+
+// Copying the Object
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = "Ristornos Roma";
+console.log(restaurantCopy);
 ```
 
 ## Loops
