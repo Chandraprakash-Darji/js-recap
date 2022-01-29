@@ -1,27 +1,27 @@
 # Notes for Javascript
 
-jack
-**[Live Site Link](https://chandraprakash-darji.github.io/Js-notes/)**
+**[Live Site Link](https://chandraprakash-darji.github.io/Advance-JS-notes-InComplete/)**
 _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
 
 **Navigate to the Topic**
 
 1. [Basis of JS](#basis-of-jS)
-2. [The 7 Primitive Data types](#the-7-primitive-data-types)
-3. [Operators in JS](#operators-in-js)
-4. [Template literals (Template strings)](#template-literals-template-strings)
-5. [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
-6. [Type Conversion and Coercion](#type-conversion-and-coercion)
-7. [Functions](#functions)
-8. [Arrays](#arrays)
-9. [Objects](#objects)
-10. [Sets](#sets)
-11. [Maps](#maps)
-12. [Data Strucutres](#data-strucutres)
-13. [Loops](#loops)
-14. [DOM Manuplication](#dom-Manuplication)
-15. [Short Circuiting](#Short-Circuiting)
-16. [Nullish Coalescing Operator](nullish-coalescing-operator)
+1. [The 7 Primitive Data types](#the-7-primitive-data-types)
+1. [Operators in JS](#operators-in-js)
+1. [Template literals (Template strings)](#template-literals-template-strings)
+1. [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
+1. [Type Conversion and Coercion](#type-conversion-and-coercion)
+1. [Functions](#functions)
+1. [Arrays](#arrays)
+1. [Objects](#objects)
+1. [Sets](#sets)
+1. [Maps](#maps)
+1. [Working With String](#Working-With-String)
+1. [Data Strucutres](#data-strucutres)
+1. [Loops](#loops)
+1. [DOM Manuplication](#dom-Manuplication)
+1. [Short Circuiting](#Short-Circuiting)
+1. [Nullish Coalescing Operator](nullish-coalescing-operator)
 
 -   **Extra**
 -   [Developer Skills](#Developer-Skills)
@@ -859,6 +859,31 @@ console.log([...question]);
 console.log([...question.entries()]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
+```
+
+## Working With String
+
+```js
+// Working With String
+const airline = 'TAP Air Portugal';
+
+// Accesing the character with indexing
+console.log(airline[0]); // T
+console.log(airline[1]); // A
+console.log(airline[2]); // P
+
+// to infd the lenght of String
+console.log(airline.length); // 16
+
+// To find the index of Character
+console.log(airline.indexOf('r')); // 6
+console.log(airline.lastIndexOf('r')); // 10
+console.log(airline.indexOf('Portugal')); // 8
+
+// to Slice the charater
+console.log(airline.slice(4)); // one Argument = start
+console.log(airline.slice(0, 4)); // two argument = start,end
+console.log(airline.slice(-8)); // Counting from ending
 ```
 
 ## Data Strucutres
