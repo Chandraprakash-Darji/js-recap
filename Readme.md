@@ -894,7 +894,7 @@ console.log(airline.toUpperCase()); // Upper case
 
 // Fixing Capitilaziation of name
 const fixName = function (peopleName) {
-  return peopleName.toUpperCase()[0] + peopleName.toLowerCase().slice(1);
+    return peopleName.toUpperCase()[0] + peopleName.toLowerCase().slice(1);
 };
 console.log(fixName('ChaNDRAPrakASH'));
 
@@ -924,17 +924,17 @@ console.log(plane.includes('blue')); // false
 console.log(plane.startsWith('Air')); // true
 
 if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
-  console.log('Part of NEW Airbus Family.🙂');
+    console.log('Part of NEW Airbus Family.🙂');
 }
 
 // Practise Exersise
 const checkBaggage = function (items) {
-  items = items.toLowerCase();
-  if (items.includes('gun') || items.includes('knife')) {
-    console.log('Your Not Allowed. 💥');
-  } else {
-    console.log('You can Board. 🙂');
-  }
+    items = items.toLowerCase();
+    if (items.includes('gun') || items.includes('knife')) {
+        console.log('Your Not Allowed. 💥');
+    } else {
+        console.log('You can Board. 🙂');
+    }
 };
 checkBaggage('I have a laptop, Some Food and a pocket Knife');
 checkBaggage('Socks and Camera');
@@ -948,12 +948,12 @@ const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' '); // Mr. Cha
 console.log(newName);
 
 const capitalizeName = function (name) {
-  name = name.split(' ');
-  name.forEach(nam => {
-    // name[name.indexOf(nam)] = nam[0].toUpperCase() + nam.slice(1).toLowerCase(); // Make to Parts and Capitalized
-    name[name.indexOf(nam)] = nam.replace(nam[0], nam[0].toUpperCase()); // replacing first Character ...
-  });
-  console.log(name.join(' '));
+    name = name.split(' ');
+    name.forEach(nam => {
+        // name[name.indexOf(nam)] = nam[0].toUpperCase() + nam.slice(1).toLowerCase(); // Make to Parts and Capitalized
+        name[name.indexOf(nam)] = nam.replace(nam[0], nam[0].toUpperCase()); // replacing first Character ...
+    });
+    console.log(name.join(' '));
 };
 capitalizeName('jessica ann smith davis');
 capitalizeName('chandrprakash darji');
@@ -965,23 +965,46 @@ console.log('ChandrPrakash'.padStart(20, '+').padEnd(30, '+')); // +++++++Chandr
 
 // Exapmle
 const maskCreditCard = function (number) {
-  const str = number + '';
-  return str.slice(-4).padStart(str.length, '*');
+    const str = number + '';
+    return str.slice(-4).padStart(str.length, '*');
 };
 console.log(maskCreditCard(6548736)); // ***8736
 console.log(maskCreditCard(46557895613266)); // **********3266
 console.log(maskCreditCard('4655789613264659876')); // ***************9876
 
-const badWaeatherMsg= "Bad weather... All Ddepartues Delayed... "
-console.log(badWaeatherMsg.repeat(5)); // Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... 
+const badWaeatherMsg = 'Bad weather... All Ddepartues Delayed... ';
+console.log(badWaeatherMsg.repeat(5)); // Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed... Bad weather... All Ddepartues Delayed...
 
+const planeInLine = function (n) {
+    console.log(`There are ${n} planes in line... ${'✈️'.repeat(n)}`);
+};
+planeInLine(5); // There are 5 planes in line... ✈️✈️✈️✈️✈️
+planeInLine(12); // There are 12 planes in line... ✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️
+planeInLine(2); // There are 2 planes in line... ✈️✈️
 
-const planeInLine = function (n){
-  console.log(`There are ${n} planes in line... ${"✈️".repeat(n)}`);
-}
-planeInLine(5) // There are 5 planes in line... ✈️✈️✈️✈️✈️
-planeInLine(12) // There are 12 planes in line... ✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️✈️
-planeInLine(2) // There are 2 planes in line... ✈️✈️
+// Practise Question to Understand String Methods
+const flights =
+    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+flights.split('+').forEach(flightEntrie => {
+    let [status, fromPoint, toPoint, time] = flightEntrie.split(';');
+
+    const outPut = `${
+        status.startsWith('_Delayed') ? '🔴' : ''
+    }${status.replaceAll('_', ' ')} from ${getCode(fromPoint)} to ${getCode(
+        toPoint
+    )} (${time.replace(':', 'h')})`.padStart(45);
+    console.log(outPut);
+
+    /*Output --->>  🔴 Delayed Departure from FAO to TXL (11h25)
+                              Arrival from BRU to FAO (11h45)
+                    🔴 Delayed Arrival from HEL to FAO (12h05)
+                             Departure from FAO to LIS (12h30)
+  */
+});
+
 ```
 
 ## Data Strucutres
