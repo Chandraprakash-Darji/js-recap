@@ -1,31 +1,80 @@
 # Notes for Javascript
 
 **[Live Site Link](https://chandraprakash-darji.github.io/Advance-JS-notes-InComplete/)**
-_(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course)_
+
+_(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for amazing content that i learned)_
 
 **Navigate to the Topic**
 
-1. [Basis of JS](#basis-of-jS)
-1. [The 7 Primitive Data types](#the-7-primitive-data-types)
-1. [Operators in JS](#operators-in-js)
-1. [Template literals (Template strings)](#template-literals-template-strings)
-1. [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
-1. [Type Conversion and Coercion](#type-conversion-and-coercion)
-1. [Functions](#functions)
-1. [Arrays](#arrays)
-1. [Objects](#objects)
-1. [Sets](#sets)
-1. [Maps](#maps)
-1. [Working With String](#Working-With-String)
-1. [Data Strucutres](#data-strucutres)
-1. [Loops](#loops)
-1. [DOM Manuplication](#dom-Manuplication)
-1. [Short Circuiting](#Short-Circuiting)
-1. [Nullish Coalescing Operator](nullish-coalescing-operator)
-
--   **Extra**
--   [Developer Skills](#Developer-Skills)
-<!-- - [How JavaScript Works](#how-javascript-works) -->
+- [Notes for Javascript](#notes-for-javascript)
+  - [Basis of JS](#basis-of-js)
+  - [The 7 Primitive Data types](#the-7-primitive-data-types)
+  - [Operators in JS](#operators-in-js)
+    - [Arithmetic Operators](#arithmetic-operators)
+    - [Assignment Operators](#assignment-operators)
+    - [Comparison Operators](#comparison-operators)
+    - [Logical Operators](#logical-operators)
+    - [Ternary Operators](#ternary-operators)
+  - [Template literals (Template strings)](#template-literals-template-strings)
+  - [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
+  - [Type Conversion and Coercion](#type-conversion-and-coercion)
+    - [Type Conversion](#type-conversion)
+      - [Falsy values](#falsy-values)
+      - [Truely Value](#truely-value)
+    - [Type Coercion](#type-coercion)
+  - [Switch Statment](#switch-statment)
+  - [Functions](#functions)
+    - [Default Arguments](#default-arguments)
+    - [How passing argument Works :: value vs. Refrence](#how-passing-argument-works--value-vs-refrence)
+    - [First Class and Higher Order Function](#first-class-and-higher-order-function)
+      - [Some Properties of First-Class Functions](#some-properties-of-first-class-functions)
+    - [Higher Order Functions](#higher-order-functions)
+      - [Some Properties of Higher-Order Functions](#some-properties-of-higher-order-functions)
+        - [Function that recevies another function](#function-that-recevies-another-function)
+        - [Function that returns a new function](#function-that-returns-a-new-function)
+      - [Implimentation](#implimentation)
+        - [Function Accepting CallBacks](#function-accepting-callbacks)
+        - [Function Returninng the Function](#function-returninng-the-function)
+        - [Call Method](#call-method)
+        - [Apply Method => Takes two argument 1. this keyword Point 2. array of argument should pass to book fun.](#apply-method--takes-two-argument-1-this-keyword-point-2-array-of-argument-should-pass-to-book-fun)
+        - [Bind Method](#bind-method)
+    - [Imediately Invoked Functions](#imediately-invoked-functions)
+  - [Arrays](#arrays)
+  - [Objects](#objects)
+  - [Sets](#sets)
+  - [Maps](#maps)
+  - [Working With String](#working-with-string)
+  - [Data Strucutres](#data-strucutres)
+    - [List of data Strucures](#list-of-data-strucures)
+    - [Sources of Data](#sources-of-data)
+    - [Usess of Arrays](#usess-of-arrays)
+    - [Usess of Sets](#usess-of-sets)
+    - [Usess of Object](#usess-of-object)
+    - [Usess of Maps](#usess-of-maps)
+  - [Loops](#loops)
+    - [For Loops](#for-loops)
+    - [For of loops](#for-of-loops)
+    - [Nested Loops](#nested-loops)
+    - [While loop](#while-loop)
+    - [Loop Control Statments](#loop-control-statments)
+      - [Continue](#continue)
+      - [Break](#break)
+  - [DOM Manuplication](#dom-manuplication)
+    - [Accessing Dom Elements](#accessing-dom-elements)
+    - [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
+    - [Create New DOM Elements](#create-new-dom-elements)
+    - [Add Elements to the DOM](#add-elements-to-the-dom)
+    - [Add Elements to the DOM cont.](#add-elements-to-the-dom-cont)
+    - [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
+  - [Short Circuiting](#short-circuiting)
+  - [Nullish Coalescing Operator](#nullish-coalescing-operator)
+  - [Developer Skills](#developer-skills)
+    - [HOW TO FAIL 🤦 AT LEARNING HOW TO CODE](#how-to-fail--at-learning-how-to-code)
+    - [HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE](#how-to-succeed--at-learning-how-to-code)
+    - [HOW TO FAIL 🤦 AT SOLVING PROBLEMS](#how-to-fail--at-solving-problems)
+    - [4 STEPS FRAMEWORK TO SOLVE ANY PROBLEM](#4-steps-framework-to-solve-any-problem)
+    - [WHAT IS A SOFTWARE BUG?](#what-is-a-software-bug)
+    - [THE DEBUGGING PROCESS](#the-debugging-process)
 
 ## Basis of JS
 
@@ -360,7 +409,7 @@ const yearsUntilRetirment = (birthYear, firstName) => {
 console.log(yearsUntilRetirment(2002, 'rega'));
 ```
 
-### **Default Arguments**
+### Default Arguments
 
 ```js
 const bookings = [];
@@ -385,7 +434,7 @@ createBooking('LH123', undefined, 50); // set any value to undefined to skip tha
 console.log(bookings); // Loging all the booking
 ```
 
-### **How passing argument Works :: value vs. Refrence**
+### How passing argument Works :: value vs. Refrence
 
 ```js
 const flight = 'LH123';
@@ -412,14 +461,14 @@ console.log(flight, jonas); // LH123 {name: 'Mr.Jonas Schmendtmann', passport: 6
 // when we change in the function it change the refrence and Orignal One Becuse  it is Saved in memorry Heap
 ```
 
-### **First Class and Higher Order Function**
+### First Class and Higher Order Function
 
 -   First Class Function => JavaScript treats function as first-class Citizen =>
 -   This means that functions are simply values =>
 -   Functions are just another Object
 -   Just a concept that a Programming Language as or not :::
 
-#### **Some Properties of First-Class Functions**
+#### Some Properties of First-Class Functions
 
 -   **Store Functions in Variables or Properties**
 
@@ -446,143 +495,221 @@ console.log(flight, jonas); // LH123 {name: 'Mr.Jonas Schmendtmann', passport: 6
 -   **Return Functon from Function**
 -   **Call methods on functions:**
 
-        ```js
-        counter.inc.bind(someOtherObject);
-        ```
+    ```js
+    counter.inc.bind(someOtherObject);
+    ```
 
-### **Higher Order Functions**
+### Higher Order Functions
 
 -   A function that **receives** another function as an argument, that **return** a new function, or **both**
 -   Is in practise when lang => Supports the **First class Function**
 
-#### **Some Properties of Higher-Order Functions**
+#### Some Properties of Higher-Order Functions
 
--   **Function that recevies another function**
+##### Function that recevies another function
+
     ```js
     const greet = () => console.log("Hey ChandrPrakash);
     btnClose.addEventListener('click', greet)
     // addEventListener is a Higher-order function
     // greet is CallBack Function
     ```
--   **Function that returns a new function**
-    ```js
-    function count() {
-        // ⇑ Higher Order Function
-        let counter = 0;
-        return function () {
-            // ⇑ Returned Function
-            counter++;
-        };
-    }
-    ```
--   **Implimentation**
 
-    -   **Function Accepting CallBacks**
+##### Function that returns a new function
 
-        ```js
-        const oneWord = function (str) {
-            return str.replace(/ /g, '').toLowerCase();
-        };
-        const upperFirstWord = function (str) {
-            const [first, ...other] = str.split(' ');
-            return [first.toUpperCase(), ...other].join(' ');
-        };
+```js
+function count() {
+    // ⇑ Higher Order Function
+    let counter = 0;
+    return function () {
+        // ⇑ Returned Function
+        counter++;
+    };
+}
+```
 
-        // Higher Order Functions
-        const transformer = function (str, fn) {
-            // fn is callback function
-            // Higher order Function does not consist of Main logic
-            // It depend Upon the lower order function
-            // Higher Order function doesn't know what to do
-            console.log(`Orignal String: ${str}`);
-            console.log(`Transformed String: ${fn(str)}`);
+#### Implimentation
 
-            console.log(`Transformed by: ${fn.name}`);
-        };
+##### Function Accepting CallBacks
 
-        transformer('JavaScript is the Best', upperFirstWord);
-        // Orignal String: JavaScript is the Best
-        // Transformed String: JAVASCRIPT is the Best
-        // Transformed by: upperFirstWord
-        transformer('JavaScript is the Best', oneWord);
-        // Orignal String: JavaScript is the Best
-        // Transformed String: javascriptisthebest
-        // Transformed by: oneWord
+```js
+const oneWord = function (str) {
+    return str.replace(/ /g, '').toLowerCase();
+};
+const upperFirstWord = function (str) {
+    const [first, ...other] = str.split(' ');
+    return [first.toUpperCase(), ...other].join(' ');
+};
 
-        // Js uses callbacks all the Time
-        const high5 = function () {
-            console.log('👋');
-        };
+// Higher Order Functions
+const transformer = function (str, fn) {
+    // fn is callback function
+    // Higher order Function does not consist of Main logic
+    // It depend Upon the lower order function
+    // Higher Order function doesn't know what to do
+    console.log(`Orignal String: ${str}`);
+    console.log(`Transformed String: ${fn(str)}`);
 
-        document.body.addEventListener('click', high5);
-        ['Jonas', 'Martha', 'Adam'].forEach(high5);
-        ```
+    console.log(`Transformed by: ${fn.name}`);
+};
 
-    -   **Function Returninng the Function**
+transformer('JavaScript is the Best', upperFirstWord);
+// Orignal String: JavaScript is the Best
+// Transformed String: JAVASCRIPT is the Best
+// Transformed by: upperFirstWord
+transformer('JavaScript is the Best', oneWord);
+// Orignal String: JavaScript is the Best
+// Transformed String: javascriptisthebest
+// Transformed by: oneWord
 
-        ```js
-        // Function Expression
-        const greetExp = function (greeting) {
-            return function (name) {
-                console.log(`${greeting} ${name}`);
-            };
-        };
-        const greetHey = greetExp('Hey');
-        greetHey('Jonas');
-        greetHey('Rega');
+// Js uses callbacks all the Time
+const high5 = function () {
+    console.log('👋');
+};
 
-        greetExp('Hello')('Chandra Prakash');
+document.body.addEventListener('click', high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5);
+```
 
-        // Arrow Function ( confusing )
-        const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+##### Function Returninng the Function
 
-        greetArr('Hi')('Chandra Prakash');
-        ```
+```js
+// Function Expression
+const greetExp = function (greeting) {
+    return function (name) {
+        console.log(`${greeting} ${name}`);
+    };
+};
+const greetHey = greetExp('Hey');
+greetHey('Jonas');
+greetHey('Rega');
 
-    -   **Call and Apply Method**
+greetExp('Hello')('Chandra Prakash');
 
-        ```js
-        const luthansa = {
-            airline: 'luthansa',
-            iataCode: 'LH',
-            bookings: [],
-            book(flightNum, name) {
-                console.log(
-                    `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-                );
-                this.bookings.push({
-                    flight: `${this.iataCode}${flightNum}`,
-                    name,
-                });
-            },
-        };
-        luthansa.book(234, 'Jonas Schmendtmann');
+// Arrow Function ( confusing )
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
-        const eurowing = {
-            name: 'Eurowings',
-            iataCode: 'EW',
-            bookings: [],
-        };
+greetArr('Hi')('Chandra Prakash');
+```
 
-        const book = luthansa.book;
+##### Call Method
 
-        // book(23, 'Sarah Williams'); // Here this keyword in book function will be undefined so it will bring Error
-        // Book is Just a normal function not and method
+```js
+const luthansa = {
+    airline: 'luthansa',
+    iataCode: 'LH',
+    bookings: [],
+    book(flightNum, name) {
+        console.log(
+            `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+        );
+        this.bookings.push({
+            flight: `${this.iataCode}${flightNum}`,
+            name,
+        });
+    },
+};
+luthansa.book(234, 'Jonas Schmendtmann');
 
-        // Call Method
-        book.call(eurowing, 543, 'Rega'); // Here we are settings that `this` keyword should point to eurowing
+const eurowing = {
+    name: 'Eurowings',
+    iataCode: 'EW',
+    bookings: [],
+};
 
-        book.call(luthansa, 654, 'ChandrPrakash');
+const book = luthansa.book;
 
-        // Apply Method => Takes two argument 1. this keyword Point 2. array of argument should pass to book fun.
-        const bookingData = [332, 'Mary Will'];
-        book.apply(luthansa, bookingData); // Not Used More in Mordern JS
-        console.log(luthansa);
+// book(23, 'Sarah Williams'); // Here this keyword in book function will be undefined so it will bring Error
+// Book is Just a normal function not and method
 
-        // apply alt.
-        book.call(eurowing, ...bookingData); // Spread Opertaor Convert array to comma Sperated Values
-        console.log(eurowing);
-        ```
+// Call Method
+book.call(eurowing, 543, 'Rega'); // Here we are settings that `this` keyword should point to eurowing
+
+book.call(luthansa, 654, 'ChandrPrakash');
+```
+
+##### Apply Method => Takes two argument 1. this keyword Point 2. array of argument should pass to book fun.
+
+```js
+const bookingData = [332, 'Mary Will'];
+book.apply(luthansa, bookingData); // Not Used More in Mordern JS
+console.log(luthansa);
+
+// apply alt.
+book.call(eurowing, ...bookingData); // Spread Opertaor Convert array to comma Sperated Values
+console.log(eurowing);
+```
+
+##### Bind Method
+
+```js
+
+// bind method creates new function ::: that functions ""this"" keyword points to the object that is binded
+const bookEW = book.bind(eurowing);
+bookEW(23, 'Stewen');
+
+// Giving the default argument to the returned function
+const bookEW23 = book.bind(eurowing, 23);
+bookEW23('Rega');
+
+// Practical Use
+luthansa.planes = 300;
+luthansa.buyPlane = function () {
+console.log(this);
+
+this.planes++;
+console.log(this.planes);
+};
+
+// in Event handler the function passed in always point to the element we are giving event
+document.querySelector('.buy').addEventListener('click', luthansa.buyPlane); // <button class="buy">Buy new plane 🛩</button> NaN
+
+// We need to give the this keyword manualy
+document
+.querySelector('.buy')
+.addEventListener('click', luthansa.buyPlane.bind(luthansa));
+// {airline: 'luthansa', iataCode: 'LH', bookings: Array(3), planes: 300, book: ƒ, …}
+// 301
+
+// Partial Application
+const addtax = (rate, value) => value + value \* rate;
+console.log(addtax(0.1, 100));
+
+const addVAT = addtax.bind(null, 0.23);
+// addVAT = value => value + value \* .23
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addtaxNoBind = function (rate) {
+return function (value) {
+return value + value \* rate;
+};
+};
+
+const rate23 = addtaxNoBind(0.23);
+console.log(rate23(100));
+console.log(rate23(23));
+
+```
+
+### Imediately Invoked Functions
+
+```js
+(function () {
+    console.log('This Only Run Once');
+})();
+
+(() => {
+    console.log('Arrow only once');
+    const isPrivate = 23; // Scoped Variable Cant't Accese from Outside
+})();
+
+{
+    const isPrivte = 40; // Private blovked Scoped
+    var notPrivate = 46; // Not Privte Functional Scope
+}
+```
 
 ## Arrays
 
@@ -977,7 +1104,7 @@ for (const day of properties){
 }
 console.log(openStr);
 
-// Property\ VALUES
+// Property VALUES
 const values = Object.values(openingHours)
 console.log(values);
 
@@ -1232,14 +1359,14 @@ flights.split('+').forEach(flightEntrie => {
 
 ## Data Strucutres
 
-List of data Strucures
+### List of data Strucures
 
 -   [Arrays](#arrays)
 -   [Objects](#objects)
 -   [Sets](#sets)
 -   [Maps](#maps)
 
-Sources of Data
+### Sources of Data
 
 1. **From the Program itself:** Data written directly in source code (e.g. status messages)
 2. **From the UI:** Data input from user or the data written in DOM (e.g. tasks in todo app)
@@ -1247,7 +1374,7 @@ Sources of Data
 
 **->** Collection of data **->** Data Structures **->** 1. Simple List [ ARRAYS or SETS] && 2. Key/Value Pairs [OBJECTS or MAPS] (keys allow us to decribe values )
 
-**Usess of Arrays**
+### Usess of Arrays
 
 -   ```js
     const task = ['eat', 'code', 'sleep', 'repeat'];
@@ -1255,7 +1382,7 @@ Sources of Data
 -   Use when you need ordered list of values (might contain duplicates)
 -   Use when you need to manipulate data
 
-**Usess of Sets**
+### Usess of Sets
 
 -   ```js
     const = new Set(['eat', 'code', 'sleep', 'repeat']);
@@ -1264,7 +1391,7 @@ Sources of Data
 -   Use when high-performance is really important
 -   Use to remove duplicates from arrays
 
-**Usess of Object**
+### Usess of Object
 
 -   ```js
     const task = {
@@ -1280,7 +1407,7 @@ Sources of Data
 -   Use when you need to include functions (methods)
 -   Use when working with JSON (can convert to map)
 
-**Usess of Maps**
+### Usess of Maps
 
 -   ```js
     const task = new Map([
@@ -1298,7 +1425,7 @@ Sources of Data
 
 ## Loops
 
-**For Loops**
+### For Loops
 
 ```js
 for (let rep = 0; rep <= 10; rep++) {
@@ -1343,7 +1470,7 @@ for (let index = chandraPrakash.length - 1; index >= 0; index--) {
             ChandraPrakah */
 ```
 
-**For of loops**
+### For of loops
 
 ```js
 // for of loop [ Looping The ARRAYS ]
@@ -1374,34 +1501,7 @@ console.log(...menu.entries()); // [0, 'Focaccia'] [1, 'Bruschetta'] [2, 'Gar
 // [4, 'Pizza'] [5, 'Pasta']0: 51: "Pasta"length: 2[[Prototype]]: Array(0) [6, 'Risotto']
 ```
 
-**Continue**
-
-```js
-// Continue -> When loop gets Continue the current itreation
-// is stopped and skipped to next one ...
-for (let index = 0; index < chandraPrakash.length; index++) {
-    if (typeof chandraPrakash[index] !== 'string') continue;
-    console.log(chandraPrakash[index]);
-}
-/* Output -> ChandraPrakah
-              Darji
-              Student*/
-```
-
-**Break**
-
-```js
-// Break -> When loop gets Break the whole is breaked
-// and all itreation will not happen
-for (let index = 0; index < chandraPrakash.length; index++) {
-    if (typeof chandraPrakash[index] === 'number') break;
-    console.log(chandraPrakash[index]); // no item will print if number is found
-}
-/* Output -> ChandraPrakah
-              Darji*/
-```
-
-**Nested Loops**
+### Nested Loops
 
 ```js
 for (let i = 0; i < 5; i++) {
@@ -1412,7 +1512,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-**While loop**
+### While loop
 
 ```js
 // while loop -> Loop that doesn't require a counter
@@ -1428,6 +1528,35 @@ while (dice !== 6) {
     dice = Math.trunc(Math.random() * 7);
     if (dice === 6) console.log('Loops is about to end');
 }
+```
+
+### Loop Control Statments
+
+#### Continue
+
+```js
+// Continue -> When loop gets Continue the current itreation
+// is stopped and skipped to next one ...
+for (let index = 0; index < chandraPrakash.length; index++) {
+    if (typeof chandraPrakash[index] !== 'string') continue;
+    console.log(chandraPrakash[index]);
+}
+/* Output -> ChandraPrakah
+              Darji
+              Student*/
+```
+
+#### Break
+
+```js
+// Break -> When loop gets Break the whole is breaked
+// and all itreation will not happen
+for (let index = 0; index < chandraPrakash.length; index++) {
+    if (typeof chandraPrakash[index] === 'number') break;
+    console.log(chandraPrakash[index]); // no item will print if number is found
+}
+/* Output -> ChandraPrakah
+              Darji*/
 ```
 
 ## DOM Manuplication
