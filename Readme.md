@@ -15,6 +15,7 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
     - [Comparison Operators](#comparison-operators)
     - [Logical Operators](#logical-operators)
     - [Ternary Operators](#ternary-operators)
+    - [Spread/Rest Operator](#spreadrest-operator)
   - [Template literals (Template strings)](#template-literals-template-strings)
   - [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
   - [Type Conversion and Coercion](#type-conversion-and-coercion)
@@ -40,6 +41,7 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
         - [Bind Method](#bind-method)
     - [Imediately Invoked Functions](#imediately-invoked-functions)
   - [Arrays](#arrays)
+    - [Data Transformation with MAP / FILTER / REDUCE / FIND Methods](#data-transformation-with-map--filter--reduce--find-methods)
   - [Objects](#objects)
   - [Sets](#sets)
   - [Maps](#maps)
@@ -54,6 +56,7 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
   - [Loops](#loops)
     - [For Loops](#for-loops)
     - [For of loops](#for-of-loops)
+    - [ForEach loops](#foreach-loops)
     - [Nested Loops](#nested-loops)
     - [While loop](#while-loop)
     - [Loop Control Statments](#loop-control-statments)
@@ -261,6 +264,63 @@ let a = 10,
 
 var c = a > b ? a : b; // value of c would be 10
 var d = a > b ? b : a; // value of d would be 5
+```
+
+### Spread/Rest Operator
+
+```js
+//  Unpacking Array at Once by spread Operator
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]]; // [1, 2, 7, 8, 9]
+
+const newArr = [1, 2, ...arr]; // [1, 2, 7, 8, 9]
+// spread operator is comma seprated Value -> It can be Used for all iterable ( string , array , map , sets ) But not Objects
+// this are completing new array
+
+console.log(newArr); // [1, 2, 7, 8, 9]
+console.log(...newArr); // 1 2 7 8 9
+
+// Spread operator on String
+const str = 'Jonas';
+const letters = [...str, '', 'S.']; // ['J', 'o', 'n', 'a', 's', '', 'S.']
+
+// Spread operator are only Used when multiple Values can enter... like you can't use in tmeplte litral
+
+// SPREAD, beacuse it is on RIGHT side of =   -> value seprated by commas
+const arr = [1, 2, ...[3, 4]];
+console.log(arr); // [1, 2, 3, 4]
+
+// REST, beacuse on LEFT side of =   -> variable seprated by Comma
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, others); // 1 2 [3, 4, 5, 6]
+
+const [pizza, resto, ...otherFood] = [
+    ...restaurant.mainMenu,
+    ...restaurant.starterMenu,
+];
+console.log(pizza, resto, otherFood); // Pizza Pasta ['Risotto', 'Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad']
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays); // {open: 0, close: 24} {thu: {…}, fri: {…}}
+
+// FUNCTIONS
+const add = function (...numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+    console.log(sum);
+};
+add(2, 3);
+add(2, 3, 4);
+add(2, 3, 4, 5);
+add(2, 4, 54, 45);
+
+const x = [2, 5, 1, 51, 54, 54, 5];
+add(...x);
+
+// Copy Array
+const myArr = [1, 2, 3];
+const myCopy = [...myArr]; // All elemt of myArr will be Copied
 ```
 
 ## Template literals (Template strings)
@@ -715,7 +775,7 @@ console.log(rate23(23));
 
 ```js
 // Methoda 1 of declaring Arrays
-const friends = ["Ankit", "Dave", "Jonas"];
+const friends = ['Ankit', 'Dave', 'Jonas'];
 console.log(friends);
 
 // Method 2 of Declaring Arrays
@@ -732,25 +792,25 @@ console.log(friends.length);
 console.log(friends[friends.length - 1]);
 
 // Changing Element
-friends[1] = "Jay";
+friends[1] = 'Jay';
 console.log(friends);
 
 // Diffrent type of Data
 const chandraPrakash = [
-"ChandraPrakash",
-"Darji",
-2022 - 2002,
-"India",
-friends,
+    'ChandraPrakash',
+    'Darji',
+    2022 - 2002,
+    'India',
+    friends,
 ];
 console.log(chandraPrakash);
 
 // Pushing Element
-const NewLength = friends.push("C2"); // Element is pushed and NewLenght is Returned
+const NewLength = friends.push('C2'); // Element is pushed and NewLenght is Returned
 console.log(friends, NewLength);
 
 // Push Element at index 0
-friends.unshift("Raj");
+friends.unshift('Raj');
 console.log(friends);
 
 // Remove Element
@@ -762,18 +822,18 @@ friends.shift();
 console.log(friends);
 
 // find Element
-console.log(friends.indexOf("Jay")); // 1
-console.log(friends.indexOf("Jay2")); // -1 means not Exist
+console.log(friends.indexOf('Jay')); // 1
+console.log(friends.indexOf('Jay2')); // -1 means not Exist
 
 // check if exist
-console.log(friends.includes("Jay")); // true
+console.log(friends.includes('Jay')); // true
 
 // Distructuring( Unpacking ) the Array
 const arr = [2, 3, 4];
 const [x, y, z] = arr;
 console.log(x, y, z); // 2 3 4
 
-const categories = ["Italian", "Pizzeria", "Vegetarian", "Organic"];
+const categories = ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'];
 const [main, , secondary] = categories; // mainn = "IOItalian" and secondary = "Vegetarian"
 [secondary, main] = [main, secondary]; // main <-> secondary
 
@@ -784,58 +844,102 @@ console.log(i, j, k); // 2 4 5
 const [p, q, r] = [2, 5]; // p = 2 ::: q = 5 ::: r = undefined
 const [p = 1, q = 1, r = 1] = [2]; // p = 2 ::: q = 1 ::: r = 1
 
-//  Unpacking Array at Once by spread Operator
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]]; // [1, 2, 7, 8, 9]
+// 1. SLICE Method
+let arr = ['a', 'b', 'c', 'd', 'f'];
+console.log(arr.slice(2)); // element from 2 index to end :: ['c', 'd', 'f']]
+console.log(arr.slice(2, 4)); // element from 2 index to 3 ['c', 'd']
+console.log(arr.slice(-2)); // negative number means from end of the array :: ['d', 'f']
+console.log(arr.slice(2, 4)); // element from 2 index to 3 ['c', 'd']
+console.log(arr.slice(2, -2)); // ["c"]
+console.log(arr.slice()); // full copy of orignal Array
 
-const newArr = [1, 2, ...arr]; // [1, 2, 7, 8, 9]
-// spread operator is comma seprated Value -> It can be Used for all iterable ( string , array , map , sets ) But not Objects
-// this are completing new array
+// 2. SPLICE
+console.log(arr.splice(2)); // [ "c", "d", "f" ]
+console.log(arr); // [ "a", "b" ] // Extracted element is removed
 
-console.log(newArr); // [1, 2, 7, 8, 9]
-console.log(...newArr); // 1 2 7 8 9
+// 3. REVERSE
+arr = ['a', 'b', 'c', 'd', 'f'];
+let arr2 = ['j', 'k', 'i', 'g'];
 
-// Copy Array
-const myArr = [1,2,3]
-const myCopy = [.myArr] // All elemt of myArr will be Copied
+console.log(arr2.reverse()); // Reverse the original array and return it
+console.log(arr2); //  [ "g", "i", "k", "j" ]
 
-// Spread operator on String
-const str = "Jonas"
-const letters = [...str,"","S."] // ['J', 'o', 'n', 'a', 's', '', 'S.']
+// 4. CONCAT
+const letters = arr.concat(arr2); // Adding 2 array :: didn't change orrignal
+console.log(letters); //  [ "a", "b", "c", "d", "f", "g", "i", "k", "j" ]​
 
-// Spread operator are only Used when multiple Values can enter... like you can't use in tmeplte litral
+// 5. JOIN
+console.log(letters.join(' - ')); // a - b - c - d - f - g - i - k - j
+// Join array items by any seprater
+```
 
-// SPREAD, beacuse it is on RIGHT side of =   -> value seprated by commas
-const arr = [1, 2, ...[3, 4]];
-console.log(arr); // [1, 2, 3, 4]
+### Data Transformation with MAP / FILTER / REDUCE / FIND Methods
 
-// REST, beacuse on LEFT side of =   -> variable seprated by Comma
-const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
-console.log(a, b, others); // 1 2 [3, 4, 5, 6]
+**Map method**
 
-const [pizza, resto, ...otherFood] = [
-...restaurant.mainMenu,
-...restaurant.starterMenu,
-];
-console.log(pizza, resto, otherFood); // Pizza Pasta ['Risotto', 'Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad']
+Map returns a new array containg the result of pplying operation on all original elements.
 
-// Objects
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(sat, weekdays); // {open: 0, close: 24} {thu: {…}, fri: {…}}
+In Map method also like forEach callback function ::: first argument -> element ::: second -> index ::: third argument -> Array.
 
-// FUNCTIONS
-const add = function (...numbers) {
-let sum = 0;
-for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-console.log(sum);
-};
-add(2, 3);
-add(2, 3, 4);
-add(2, 3, 4, 5);
-add(2, 4, 54, 45);
+```js
+// Map method :: Don't change Orignal Array
+const eurToUsd = 1.1;
+const moveUsd = movements.map(mov => mov * eurToUsd);
 
-const x = [2, 5, 1, 51, 54, 54, 5];
-add(...x);
+console.log(movements); //  [ 200, 450, -400, 3000, -650, -130, 70, 1300 ]
+console.log(moveUsd); // [ 220.00000000000003, 495.00000000000006, -440.00000000000006, 3300.0000000000005, -715.0000000000001, -143, 77, 1430.0000000000002 ]
+```
+
+**Filter Method**
+Filter returns a new array contaning the array elements that passed a specified text condition
+
+Returns the whole array matches the condition
+
+```js
+const deposit = movements.filter(mov => mov > 0);
+const withdrawal = movements.filter(mov => mov < 0);
+
+console.log(movements); // [ 200, 450, -400, 3000, -650, -130, 70, 1300 ]
+console.log(deposit); // [ 200, 450, 3000, 70, 1300 ]
+console.log(withdrawal); // [ -400, -650, -130 ]
+```
+
+**Find Method** Returns the element that matches the given Condition
+
+```js
+// FIND Method - returns only first element matchs the condition
+let finded = movements.find(mov => mov < 0);
+console.log(`First Withdrawal ${finded}`);
+```
+
+**Reduce Method**
+Reduce boils("Reduces") all the array elements down to one single value (e.g. adding all the elements together)
+
+```js
+// REDUCE method
+console.log(movements);
+const balance = movements.reduce((acc, cur, i, arr) => {
+    console.log(`Iteration ${i}: Accumulator is ${acc}`);
+    // acc :: accumulator value saved in acc
+    // cur :: current number
+    // i :: index
+    // arr :: actuall arr
+    /* Output ::: Iteration 0: Accumulator is 0 
+                Iteration 1: Accumulator is 200 
+                ...
+                Iteration 7: Accumulator is 2540
+  */
+    return acc + cur;
+}, 0);
+console.log(balance); // 3840
+
+// Finding Max Number
+console.log(movements); // [ 200, 450, -400, 3000, -650, -130, 70, 1300 ]
+const maxMov = movements.reduce(
+    (acc, cur) => (acc > cur ? acc : cur),
+    movement[0]
+);
+console.log(maxMov); // 3000
 ```
 
 ## Objects
@@ -1434,13 +1538,8 @@ for (let rep = 0; rep <= 10; rep++) {
 /* output =>  Hello World 0
             Hello World 1
             Hello World 2
-            Hello World 3
-            Hello World 4
-            Hello World 5
-            Hello World 6
-            Hello World 7
-            Hello World 8
-            Hello World 9
+            ...
+            ...
             Hello World 10 */
 
 // Looping through Array
@@ -1482,23 +1581,57 @@ for (const item of menu.entries()) console.log(item);
 /* Output ::: [0, 'Focaccia']
               [1, 'Bruschetta']
               [2, 'Garlic Bread']
-              [3, 'Caprese Salad']
-              [4, 'Pizza']
-              [5, 'Pasta']
-              [6, 'Risotto']
+              ...
 */
 for (const [i, el] of menu.entries()) console.log(`${i}: ${el}`);
 /* Output ::: 0: Focaccia
               1: Bruschetta
               2: Garlic Bread
-              3: Caprese Salad
-              4: Pizza
-              5: Pasta
-              6: Risotto
+              ...
 */
 
 console.log(...menu.entries()); // [0, 'Focaccia'] [1, 'Bruschetta'] [2, 'Garlic Bread'] [3, 'Caprese Salad']
 // [4, 'Pizza'] [5, 'Pasta']0: 51: "Pasta"length: 2[[Prototype]]: Array(0) [6, 'Risotto']
+```
+
+### ForEach loops
+
+In ForEach callback function the the first argument is the element and second on is index of that element, third argument in callBack is arr that is forEach loop is runned.
+
+```js
+// '---- 6. forEach Method ( ARRAY )----'
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+movements.forEach((movement, transferNo) => {
+    let type = movement > 0 ? 'Deposited' : 'Withdraw';
+    console.log(
+        `You ${type} ${Math.abs(
+            movement
+        )}. Your Transaction Number is ${transferNo}`
+    );
+});
+
+/* Output ::: You Deposited 200. Your Transaction Number is 0 
+              You Deposited 450. Your Transaction Number is 1 
+              You Withdraw 400. Your Transaction Number is 2 
+              ...
+*/
+
+// '---- 7. forEach Method ( MAP ) ----'
+const currencies = new Map([
+    ['USD', 'United States dollar'],
+    ['EUR', 'Euro'],
+    ['GBP', 'Pound sterling'],
+]);
+currencies.forEach((value, key, map) => console.log(`${key}: ${value}`));
+/* Output ::: USD: United States dollar 
+              EUR: Euro 
+              GBP: Pound sterling
+*/
+
+// '---- 8. forEach Method ( SET ) ----'
+const currenciesUnque = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+
+currenciesUnque.forEach((value, _, set) => console.log(value));
 ```
 
 ### Nested Loops
