@@ -41,7 +41,6 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
         - [Bind Method](#bind-method)
     - [Imediately Invoked Functions](#imediately-invoked-functions)
   - [Arrays](#arrays)
-    - [Data Transformation with MAP / FILTER / REDUCE / FIND Methods](#data-transformation-with-map--filter--reduce--find-methods)
   - [Objects](#objects)
   - [Sets](#sets)
   - [Maps](#maps)
@@ -873,8 +872,6 @@ console.log(letters.join(' - ')); // a - b - c - d - f - g - i - k - j
 // Join array items by any seprater
 ```
 
-### Data Transformation with MAP / FILTER / REDUCE / FIND Methods
-
 **Map method**
 
 Map returns a new array containg the result of pplying operation on all original elements.
@@ -912,6 +909,32 @@ let finded = movements.find(mov => mov < 0);
 console.log(`First Withdrawal ${finded}`);
 ```
 
+**FindIndex Method** Returns the element that matches the given Condition
+
+```js
+// FindIndex Method - returns only first index that matchs the condition
+let index = movements.findIndex(mov => mov === 200);
+console.log(`First 200 Withdrawal was you ${index} transaction`);
+```
+
+**Some Method** Returns the true/false that when any element matches the given Condition
+
+```js
+console.log(movements); // [200, 450, -400, 3000, -650, -130, 70, 1300]
+// Equality
+console.log(movements.includes(-130)); // true
+
+// Condition
+console.log(movements.some(mov => mov > 1500)); // true
+```
+
+**Every Method** Returns the true/false when all element matches the given Condition
+
+```js
+// Every Method
+console.log(movements.every(mov => mov > 1500)); // false
+```
+
 **Reduce Method**
 Reduce boils("Reduces") all the array elements down to one single value (e.g. adding all the elements together)
 
@@ -940,6 +963,75 @@ const maxMov = movements.reduce(
     movement[0]
 );
 console.log(maxMov); // 3000
+```
+
+**Flat Method** Remve Nesting from Array
+
+```js
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8, 9];
+console.log(arr.flat()); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+const arrDeep = [
+    [1, 2, 3],
+    [4, 5, 6, [7, 8, 9, [0]]],
+];
+console.log(arrDeep.flat()); // [1, 2, 3, 4, 5, 6, Array(4)]
+// Only flat till level 1
+console.log(arrDeep.flat(2)); //[1, 2, 3, 4, 5, 6, 7, 8, 9, Array(1)]
+console.log(arrDeep.flat(10)); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+```
+
+**Flatmap Method** Map Every element of array and then flat at the same time. Flat map only flat till level 1.
+
+```js
+const accc = [
+    {
+        owner: 'Jonas Schmedtmann',
+        movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    },
+    {
+        owner: 'Jessica Davis',
+        movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+    },
+    {
+        owner: 'Steven Thomas Williams',
+        movements: [200, -200, 340, -300, -20, 50, 400, -460],
+    },
+    {
+        owner: 'Sarah Smith',
+        movements: [430, 1000, 700, 50, 90],
+    },
+];
+const balance = accc
+    .flatMap(acount => acount.movements)
+    .reduce((acc, val) => acc + val, 0);
+console.log(balance); // 17840
+```
+
+**Sorting the Array**
+
+```js
+const owners = ['Jonas', 'Zach', 'Rega', 'Charli'];
+console.log(owners); // ['Jonas', 'Zach', 'Rega', 'Charli']
+
+console.log(movements); //  [200, 450, -400, 3000, -650, -130, 70, 1300]
+
+movements.sort();
+
+console.log(movements); // [-130, -400, -650, 1300, 200, 3000, 450, 70]
+// Sort the numbers as they are strings not as number
+
+movements.sort((a, b) => (a > b ? 1 : -1));
+// if a > b then it will return 1 => means swap the numbers
+// vice-versa b > a then return -1 => means not swap
+console.log(movements); // [-650, -400, -130, 70, 200, 450, 1300, 3000]
+
+// to change accending to decending just change the condition or the return value
+// you can give any value in place of -1 or 1 value should be positive or negative
+
+movements.sort((a, b) => b - a);
+console.log(movements); //  [3000, 1300, 450, 200, 70, -130, -400, -650]
+// Here b - a will be positive when b > a and positive value means swap the number and all will organize in decending order
 ```
 
 ## Objects
