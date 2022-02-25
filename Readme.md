@@ -1034,6 +1034,110 @@ console.log(movements); //  [3000, 1300, 450, 200, 70, -130, -400, -650]
 // Here b - a will be positive when b > a and positive value means swap the number and all will organize in decending order
 ```
 
+**More Ways of creating and Filling Array**
+
+```js
+// Filling items in array
+//Creating array manually
+const x = new Array(7);
+console.log(x); // Array(7) [ <7 empty slots> ]
+// Empty Array with 7 slot
+
+// On these array we can only use
+x.fill(2);
+console.log(x); // [ 2, 2, 2, 2, 2, 2, 2 ]
+
+// FILL method can be use on any array
+x.fill(1, 3, 6);
+console.log(x); // [ 2, 2, 2, 1, 1, 1, 2 ]
+// Mutate the orignal array 1st param: what to fill 2nd params: from where to fill 3rd params: till what :: it will fill till end - 1
+
+// Araay.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y); //  [ 1, 1, 1, 1, 1, 1, 1 ]
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z); // [ 1, 2, 3, 4, 5, 6, 7 ]
+
+const movementUI = Array.from(document.querySelectorAll('.movements__value'));
+console.log(movementUI); // Array(8) [ div.movements__value, .... , div.movements__value ]
+
+// MovementUI is Now array we can easily perform method like map or the reduce
+console.log(movementUI.map(el => Number(el.textContent.replace('€', '')))); //[ 1300, 70, -130, -650, 3000, -400, 450, 200 ]
+
+// Second Arrgument in Array.from is mapping call back that you no need to map sepratly
+const movementUI2 = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', ''))
+);
+// directly got the array
+console.log(movementUI2); // [ 1300, 70, -130, -650, 3000, -400, 450, 200 ]
+```
+
+**Which Method When to Use**
+
+> What I Actually Want...
+
+1. To Mutate original Array
+
+    - Add to Original:
+        > .push (end)
+        > .unshift (start)
+    - Remove from Original
+        > .pop (end)
+        > .shift (start)
+        > .splice (any)
+    - Others
+        > .reverse
+        > .sort
+        > .fill
+
+2. A new Array
+
+    - Computed from Original
+        > .map (loop)
+    - Filteres using condition
+        > .filter
+    - Portion of Original
+        > .slice
+    - Adding original to other
+        > .concat
+    - Flattening the original
+        > .flat
+        > <br>
+        > .flatMap
+
+3. An Array index
+
+    - Based on value:
+        > .indexOf
+    - Based on test condition:
+        > .findIndex
+
+4. An array Element
+    - Based on test condition:
+        > .find
+5. Know if array includes
+
+    - Based on value:
+        > .includes
+    - Based on test condition:
+        > .some
+        > <br>
+        > .every
+
+6. A new String
+
+    - Based on separator string:
+        > .join
+
+7. To transform to value
+    - Based on accumulator:
+        > .reduce (Boil down array to single .filter .findIndex .some (loop) value of any type: number, string, boolean, or even new array or object)
+8. To jusst loop array
+    - Based on callback:
+        > .forEach (Does not create a new array, just loops over it)
+
 ## Objects
 
 ```js
