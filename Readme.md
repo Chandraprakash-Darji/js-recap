@@ -74,8 +74,11 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
     - [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
     - [Create New DOM Elements](#create-new-dom-elements)
     - [Add Elements to the DOM](#add-elements-to-the-dom)
-    - [Add Elements to the DOM cont.](#add-elements-to-the-dom-cont)
+    - [Remove Html Element](#remove-html-element)
     - [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
+    - [Updating Styles Using Dom](#updating-styles-using-dom)
+    - [Changing the Atributes](#changing-the-atributes)
+    - [Events in DOM](#events-in-dom)
   - [Short Circuiting](#short-circuiting)
   - [Nullish Coalescing Operator](#nullish-coalescing-operator)
   - [Developer Skills](#developer-skills)
@@ -2179,10 +2182,12 @@ Javscript interact with DOM by WEB API's that browser Implements ...
 
 -   [Accessing Dom Elements](#accessing-dom-elements)
 -   [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
--   [Create New DOM Elements](#Create-New-DOM-elements)
--   [Add Elements to the DOM](#Add-Elements-to-the-DOM)
--   [Add Elements to the DOM cont](#Add-Elements-to-the-DOM-cont)
--   [Add/Remove/Toggle/Check Classes](#AddRemoveToggleCheck-Classes)
+-   [Create New DOM Elements](#create-new-dom-elements)
+-   [Add Elements to the DOM](#add-elements-to-the-dom)
+-   [Remove Html Element](#remove-html-element)
+-   [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
+-   [Updating Styles Using Dom](#updating-styles-using-dom)
+-   [Changing the Atributes](#changing-the-atributes)
 
 ### Accessing Dom Elements
 
@@ -2250,9 +2255,12 @@ var parent = firstHeading.parentNode;
 
 // insert newHeading before FirstHeading
 parent.insertBefore(newHeading, firstHeading);
-```
 
-### Add Elements to the DOM cont.
+// directly add before and after
+const header = document.querySelector('.header');
+header.after(message);
+header.before(message);
+```
 
 Suppose you have the following HTML:
 
@@ -2277,6 +2285,32 @@ box2.insertAdjacentHTML('beforebegin', '<div><p>This gets inserted.</p></div>');
 // afterend - The HTML would be placed immediately after the element, as a sibling.
 ```
 
+Add Multiple Element
+
+```js
+const header = document.querySelector('.header');
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML =
+    'We use cookied for imporoved functionallity and analytics. <button class="btn btn-close-cookie"> Got it!</button>';
+
+header.prepend(message); // append as a first child
+// header.append(message); // just change the place from first child to last child not gonna duplicate it again
+header.append(message.cloneNode(true)); // .clonenode(true) give perms to duplicate the element
+```
+
+### Remove Html Element
+
+.remove to remove the element
+
+```js
+const message = document.createElement('div');
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+    message.remove(); // easy Way
+    message.parentElement.removeChild(message); // Old way to remove
+});
+```
+
 ### Add/Remove/Toggle/Check Classes
 
 ```javascript
@@ -2298,6 +2332,110 @@ firstHeading.classList.toggle('visible');
 
 // will return true if it has class of 'foo' or false if it does not
 firstHeading.classList.contains('foo');
+
+// Don't use -> remove all classes and you can only add one class
+logo.className = 'Rega';
+```
+
+### Updating Styles Using Dom
+
+Change Any Style
+
+```js
+// To add styles .style.PROPERTY
+message.style.backgroundColor = '#37383d';
+// Property name should be in Camel Case
+message.style.width = '100%';
+```
+
+Access the property
+
+```js
+console.log(message.style.height); // You can't read any property. You can only read inline style
+console.log(message.style.backgroundColor); // rgb(55, 56, 61)
+
+console.log(getComputedStyle(message)); // get the Object of styles
+console.log(getComputedStyle(message).color); // To access specific style
+// these values are computed by browser not necceserly decalared by developer
+```
+
+Change the Property
+
+```js
+message.style.height = getComputedStyle(message).height + 48 + 'px'; // Not Gonna work beacuse compluted height will be in 40px you can't add with number so need to parse
+message.style.height =
+    Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
+```
+
+Change CSS variable
+
+```js
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+```
+
+### Changing the Atributes
+
+Atributes - standard
+
+```js
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt); // Bankist logo
+console.log(logo.className); // nav__logo
+console.log(logo.src); // http://127.0.0.1:5500/img/logo.png // relative folder // for exact use get atribute
+
+// Changing Atributes
+logo.alt = 'Befutiful minimlist Log';
+```
+
+Atributes - Non-Standard
+
+```html
+<img
+    src="img/logo.png"
+    alt="Bankist logo"
+    class="nav__logo"
+    id="logo"
+    designer="Rega"
+    data-version-number="3.0"
+/>
+```
+
+```js
+console.log(logo.designer); // undefined - Not gonna work
+console.log(logo.getAttribute('designer')); // "Rega"
+console.log(logo.getAttribute('src')); // img/logo.png
+logo.setAttribute('company', 'Bankist');
+```
+
+Data Atributes
+
+```js
+console.log(logo.dataset.versionNumber); // 3.0
+```
+
+### Events in DOM
+
+Events are fired are Fired from user Interaction. These can arise from user interactions such as using a mouse or resizing a window, changes in the state of the underlying environment (e.g. low battery or media events from the operating system), and other causes.
+
+For Event List [MDN DOCS](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+```js
+const h1 = document.querySelector('h1');
+const hero = document.querySelector('.header__img');
+
+const h1MouseEnter = e => {
+    hero.style.transform = 'translateX(-40rem)';
+};
+// Simple Event listner
+h1.addEventListener('mouseenter', h1MouseEnter);
+
+setTimeout(() => h1.removeEventListener('mouseenter', h1MouseEnter), 3000); // remvoves the event
+
+// old School way -> can't add multiple event listen on same activity
+// can't remove event listner
+h1.onmouseleave = e => {    
+    hero.style.transform = 'translateX(0)';
+};
 ```
 
 ## Short Circuiting
