@@ -81,6 +81,15 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
     - [Events in DOM](#events-in-dom)
   - [Short Circuiting](#short-circuiting)
   - [Nullish Coalescing Operator](#nullish-coalescing-operator)
+  - [OOPS](#oops)
+    - [Class](#class)
+    - [THE 4 FUNDAMENTAL OOP PRINCIPLES](#the-4-fundamental-oop-principles)
+      - [Abstraction](#abstraction)
+      - [Encapsulation](#encapsulation)
+      - [Inheritance](#inheritance)
+      - [Polymorphism](#polymorphism)
+    - [Prototypal inheritance](#prototypal-inheritance)
+    - [3 WAYS OF IMPLEMENTING PROTOTYPAL INHERITANCE IN JAVASCRIPT](#3-ways-of-implementing-prototypal-inheritance-in-javascript)
   - [Developer Skills](#developer-skills)
     - [HOW TO FAIL 🤦 AT LEARNING HOW TO CODE](#how-to-fail--at-learning-how-to-code)
     - [HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE](#how-to-succeed--at-learning-how-to-code)
@@ -2521,6 +2530,65 @@ console.log(guests);
 const guestCorrect = restaurant.numGuest ?? 10;
 console.log(guestCorrect);
 ```
+
+## OOPS
+
+-   👉 Object-oriented programming (OOP) is a programming paradigm based on the concept of objects;
+-   👉 We use objects to model (describe) real-world or abstract features;
+-   👉 Objects may contain data (properties) and code (methods). By using objects, we pack data and the corresponding behavior into one block;
+-   👉 In OOP, objects are self-contained pieces/blocks of code;
+-   👉 Objects are building blocks of applications, and interact with one another;
+-   👉 Interactions happen through a public interface (API): methods that the code outside of the object can access and use to communicate with the object;
+-   👉 OOP was developed with the goal of organizing code, to make it more flexible and easier to maintain (avoid “spaghetti code”).
+
+### Class
+
+Like a blueprint from which we can create new objects.
+
+Suppose there is Class of User that contain peoperties of user like username, password, email.
+
+You can use the class to create new user Object on yhe bases of the class without write every time same code and method for each user. That Object is know as Instance. You can create as many.
+
+### THE 4 FUNDAMENTAL OOP PRINCIPLES
+
+#### Abstraction
+
+Ignoring or hiding details that don’t matter, allowing us to get an overview perspective of the thing we’re implementing, instead of messing with details that don’t really matter to our implementation.
+
+#### Encapsulation
+
+Keeping properties and methods private inside the class, so they are not accessible from outside the class. Some methods can be exposed as a public interface (API).
+
+#### Inheritance
+
+Making all properties and methods of a certain class available to a child class, forming a hierarchical relationship between classes. This allows us to reuse common logic and to model real-world relationships.
+
+#### Polymorphism
+
+A child class can overwrite a method it inherited from a parent class [it’s more complex that that, but enough for our purposes].
+
+### Prototypal inheritance
+
+-   👉 Objects are linked to a prototype object;
+-   👉 Prototypal inheritance: The prototype contains methods (behavior) that are accessible to all objects linked to that prototype;
+-   👉 Behavior is delegated to the linked prototype object
+
+### 3 WAYS OF IMPLEMENTING PROTOTYPAL INHERITANCE IN JAVASCRIPT
+
+1. Constructor functions
+
+-   👉 Technique to create objects from a function;
+-   👉 This is how built-in objects like Arrays, Maps or Sets are actually implemented.
+
+2. ES6 Classes
+
+-   👉 Modern alternative to constructor function syntax;
+-   👉 “Syntactic sugar”: behind the scenes, ES6 classes work exactly like constructor functions;
+-   👉 ES6 classes do NOT behave like classes in “classical OOP” (last lecture).
+
+3. Object.create()
+
+-   👉 The easiest and most straightforward way of linking an object to a prototype object.
 
 ## Developer Skills
 
