@@ -71,7 +71,7 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
     - [setInterval](#setinterval)
   - [DOM Manuplication](#dom-manuplication)
     - [Accessing Dom Elements](#accessing-dom-elements)
-    - [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
+    - [Dom traversing](#dom-traversing)
     - [Create New DOM Elements](#create-new-dom-elements)
     - [Add Elements to the DOM](#add-elements-to-the-dom)
     - [Remove Html Element](#remove-html-element)
@@ -476,7 +476,7 @@ const yearsUntilRetirment = (birthYear, firstName) => {
     const retirment = 65 - age;
     return `${firstName} retires in ${retirment} years`;
 };
-console.log(yearsUntilRetirment(2002, 'rega'));
+console.log(yearsUntilRetirment(2002, 'Chandraprakash'));
 ```
 
 ### Default Arguments
@@ -652,7 +652,7 @@ const greetExp = function (greeting) {
 };
 const greetHey = greetExp('Hey');
 greetHey('Jonas');
-greetHey('Rega');
+greetHey('Chandraprakash');
 
 greetExp('Hello')('Chandra Prakash');
 
@@ -693,7 +693,7 @@ const book = luthansa.book;
 // Book is Just a normal function not and method
 
 // Call Method
-book.call(eurowing, 543, 'Rega'); // Here we are settings that `this` keyword should point to eurowing
+book.call(eurowing, 543, 'Chandraprakash'); // Here we are settings that `this` keyword should point to eurowing
 
 book.call(luthansa, 654, 'ChandrPrakash');
 ```
@@ -722,7 +722,7 @@ bookEW(23, 'Stewen');
 
 // Giving the default argument to the returned function
 const bookEW23 = book.bind(eurowing, 23);
-bookEW23('Rega');
+bookEW23('Chandraprakash');
 
 // Practical Use
 luthansa.planes = 300;
@@ -1024,8 +1024,8 @@ console.log(balance); // 17840
 **Sorting the Array**
 
 ```js
-const owners = ['Jonas', 'Zach', 'Rega', 'Charli'];
-console.log(owners); // ['Jonas', 'Zach', 'Rega', 'Charli']
+const owners = ['Jonas', 'Zach', 'Chandraprakash', 'Charli'];
+console.log(owners); // ['Jonas', 'Zach', 'Chandraprakash', 'Charli']
 
 console.log(movements); //  [200, 450, -400, 3000, -650, -130, 70, 1300]
 
@@ -2209,15 +2209,55 @@ document.querySelector('.someclass');
 document.querySelectorAll('div.note, div.alert');
 ```
 
-### Grab Children/Parent Node(s)
+### Dom traversing
 
 ```javascript
-// Get child nodes
-var stored = document.getElementById('someid');
-var children = stored.childNodes;
+const h1 = document.querySelector('h1');
+```
 
-// Get parent node
-var parental = children.parentNode;
+Going DOWNWARDS : CHILD
+
+```js
+// return list of node with class ".highlight"
+console.log(h1.querySelectorAll('.highlight'));
+// reurns list of all the child node -> text,comment,element,etc.
+console.log(h1.childNodes);
+// returns the html collection of element
+console.log(h1.children);
+```
+
+Going UPWARADS : PARENT
+
+```js
+h1.closest('.header'); // returns the closet parent element -> can go as high it can go
+
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+// parentElement it is the same as parentNode. The only difference comes when a node's parentNode is not an element. If so, parentElement is null.
+
+document.body.parentNode; // the <html> element
+document.body.parentElement; // the <html> element
+
+document.documentElement.parentNode; // the document node
+document.documentElement.parentElement; // null
+
+document.documentElement.parentNode === document; // true
+document.documentElement.parentElement === document; // false
+```
+
+Since the `<html>` element (document.documentElement) doesn't have a parent that is an element, parentElement is null. (There are other, more unlikely, cases where parentElement could be null, but you'll probably never come across them.)
+[source StackOverflow](https://stackoverflow.com/questions/8685739/difference-between-dom-parentnode-and-parentelement)
+
+```js
+// Going SIDEWAY : Siblings
+console.log(h1.previousElementSibling); // element before h1
+console.log(h1.nextElementSibling); // element after
+
+console.log(h1.previousSibling); // previos node
+console.log(h1.nextSibling);
+
+console.log(h1.parentElement.children); // all siblings
 ```
 
 ### Create New DOM Elements
@@ -2334,7 +2374,7 @@ firstHeading.classList.toggle('visible');
 firstHeading.classList.contains('foo');
 
 // Don't use -> remove all classes and you can only add one class
-logo.className = 'Rega';
+logo.className = 'Chandraprakash';
 ```
 
 ### Updating Styles Using Dom
@@ -2395,14 +2435,14 @@ Atributes - Non-Standard
     alt="Bankist logo"
     class="nav__logo"
     id="logo"
-    designer="Rega"
+    designer="Chandraprakash"
     data-version-number="3.0"
 />
 ```
 
 ```js
 console.log(logo.designer); // undefined - Not gonna work
-console.log(logo.getAttribute('designer')); // "Rega"
+console.log(logo.getAttribute('designer')); // "Chandraprakash"
 console.log(logo.getAttribute('src')); // img/logo.png
 logo.setAttribute('company', 'Bankist');
 ```
@@ -2433,7 +2473,7 @@ setTimeout(() => h1.removeEventListener('mouseenter', h1MouseEnter), 3000); // r
 
 // old School way -> can't add multiple event listen on same activity
 // can't remove event listner
-h1.onmouseleave = e => {    
+h1.onmouseleave = e => {
     hero.style.transform = 'translateX(0)';
 };
 ```
