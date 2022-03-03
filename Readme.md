@@ -6,107 +6,115 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
 
 **Navigate to the Topic**
 
--   [Notes for Javascript](#notes-for-javascript)
-    -   [Basis of JS](#basis-of-js)
-    -   [The 7 Primitive Data types](#the-7-primitive-data-types)
-    -   [Operators in JS](#operators-in-js)
-        -   [Arithmetic Operators](#arithmetic-operators)
-        -   [Assignment Operators](#assignment-operators)
-        -   [Comparison Operators](#comparison-operators)
-        -   [Logical Operators](#logical-operators)
-        -   [Ternary Operators](#ternary-operators)
-        -   [Spread/Rest Operator](#spreadrest-operator)
-    -   [Template literals (Template strings)](#template-literals-template-strings)
-    -   [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
-    -   [Type Conversion and Coercion](#type-conversion-and-coercion)
-        -   [Type Conversion](#type-conversion)
-            -   [Falsy values](#falsy-values)
-            -   [Truely Value](#truely-value)
-        -   [Type Coercion](#type-coercion)
-    -   [Switch Statment](#switch-statment)
-    -   [Functions](#functions)
-        -   [Default Arguments](#default-arguments)
-        -   [How passing argument Works :: value vs. Refrence](#how-passing-argument-works--value-vs-refrence)
-        -   [First Class and Higher Order Function](#first-class-and-higher-order-function)
-            -   [Some Properties of First-Class Functions](#some-properties-of-first-class-functions)
-        -   [Higher Order Functions](#higher-order-functions)
-            -   [Some Properties of Higher-Order Functions](#some-properties-of-higher-order-functions)
-                -   [Function that recevies another function](#function-that-recevies-another-function)
-                -   [Function that returns a new function](#function-that-returns-a-new-function)
-            -   [Implimentation](#implimentation)
-                -   [Function Accepting CallBacks](#function-accepting-callbacks)
-                -   [Function Returninng the Function](#function-returninng-the-function)
-                -   [Call Method](#call-method)
-                -   [Apply Method](#apply-method)
-                -   [Bind Method](#bind-method)
-        -   [Imediately Invoked Functions](#imediately-invoked-functions)
-    -   [Arrays](#arrays)
-    -   [Objects](#objects)
-    -   [Sets](#sets)
-    -   [Maps](#maps)
-    -   [Working With String](#working-with-string)
-    -   [Data Strucutres](#data-strucutres)
-        -   [List of data Strucures](#list-of-data-strucures)
-        -   [Sources of Data](#sources-of-data)
-        -   [Usess of Arrays](#usess-of-arrays)
-        -   [Usess of Sets](#usess-of-sets)
-        -   [Usess of Object](#usess-of-object)
-        -   [Usess of Maps](#usess-of-maps)
-        -   [Basic Data Structures](#basic-data-structures)
-            -   [Numbers](#numbers)
-            -   [BigInt](#bigint)
-            -   [Date](#date)
-            -   [Intl NameSpace](#intl-namespace)
-    -   [Loops](#loops)
-        -   [For Loops](#for-loops)
-        -   [For of loops](#for-of-loops)
-        -   [ForEach loops](#foreach-loops)
-        -   [Nested Loops](#nested-loops)
-        -   [While loop](#while-loop)
-        -   [Loop Control Statments](#loop-control-statments)
-            -   [Continue](#continue)
-            -   [Break](#break)
-    -   [Timers](#timers)
-        -   [SetTimeout](#settimeout)
-        -   [setInterval](#setinterval)
-    -   [DOM Manuplication](#dom-manuplication)
-        -   [Accessing Dom Elements](#accessing-dom-elements)
-        -   [Dom traversing](#dom-traversing)
-        -   [Create New DOM Elements](#create-new-dom-elements)
-        -   [Add Elements to the DOM](#add-elements-to-the-dom)
-        -   [Remove Html Element](#remove-html-element)
-        -   [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
-        -   [Updating Styles Using Dom](#updating-styles-using-dom)
-        -   [Changing the Atributes](#changing-the-atributes)
-        -   [Events in DOM](#events-in-dom)
-    -   [Short Circuiting](#short-circuiting)
-    -   [Nullish Coalescing Operator](#nullish-coalescing-operator)
-    -   [OOPS](#oops)
-        -   [Class](#class)
-        -   [THE 4 FUNDAMENTAL OOP PRINCIPLES](#the-4-fundamental-oop-principles)
-            -   [Abstraction](#abstraction)
-            -   [Encapsulation](#encapsulation)
-            -   [Inheritance](#inheritance)
-            -   [Polymorphism](#polymorphism)
-        -   [Prototypal inheritance](#prototypal-inheritance)
-        -   [3 WAYS OF IMPLEMENTING PROTOTYPAL INHERITANCE IN JAVASCRIPT](#3-ways-of-implementing-prototypal-inheritance-in-javascript)
-        -   [Constructor Function](#constructor-function)
-        -   [Prototypes](#prototypes)
-            -   [THE PROTOTYPE CHAIN](#the-prototype-chain)
-        -   [ES2015 Classes](#es2015-classes)
-        -   [Getters and Setters](#getters-and-setters)
-        -   [Object.create()](#objectcreate)
-        -   [InHertience between Classes](#inhertience-between-classes)
-        -   [Encapsulation](#encapsulation-1)
-        -   [Chaining in Class methods](#chaining-in-class-methods)
-        -   [Class in one Image](#class-in-one-image)
-    -   [Developer Skills](#developer-skills)
-        -   [HOW TO FAIL 🤦 AT LEARNING HOW TO CODE](#how-to-fail--at-learning-how-to-code)
-        -   [HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE](#how-to-succeed--at-learning-how-to-code)
-        -   [HOW TO FAIL 🤦 AT SOLVING PROBLEMS](#how-to-fail--at-solving-problems)
-        -   [4 STEPS FRAMEWORK TO SOLVE ANY PROBLEM](#4-steps-framework-to-solve-any-problem)
-        -   [WHAT IS A SOFTWARE BUG?](#what-is-a-software-bug)
-        -   [THE DEBUGGING PROCESS](#the-debugging-process)
+- [Notes for Javascript](#notes-for-javascript)
+  - [Basis of JS](#basis-of-js)
+  - [The 7 Primitive Data types](#the-7-primitive-data-types)
+  - [Operators in JS](#operators-in-js)
+    - [Arithmetic Operators](#arithmetic-operators)
+    - [Assignment Operators](#assignment-operators)
+    - [Comparison Operators](#comparison-operators)
+    - [Logical Operators](#logical-operators)
+    - [Ternary Operators](#ternary-operators)
+    - [Spread/Rest Operator](#spreadrest-operator)
+  - [Template literals (Template strings)](#template-literals-template-strings)
+  - [Conditional Statment ( if-Else )](#conditional-statment--if-else-)
+  - [Type Conversion and Coercion](#type-conversion-and-coercion)
+    - [Type Conversion](#type-conversion)
+      - [Falsy values](#falsy-values)
+      - [Truely Value](#truely-value)
+    - [Type Coercion](#type-coercion)
+  - [Switch Statment](#switch-statment)
+  - [Functions](#functions)
+    - [Default Arguments](#default-arguments)
+    - [How passing argument Works :: value vs. Refrence](#how-passing-argument-works--value-vs-refrence)
+    - [First Class and Higher Order Function](#first-class-and-higher-order-function)
+      - [Some Properties of First-Class Functions](#some-properties-of-first-class-functions)
+    - [Higher Order Functions](#higher-order-functions)
+      - [Some Properties of Higher-Order Functions](#some-properties-of-higher-order-functions)
+        - [Function that recevies another function](#function-that-recevies-another-function)
+        - [Function that returns a new function](#function-that-returns-a-new-function)
+      - [Implimentation](#implimentation)
+        - [Function Accepting CallBacks](#function-accepting-callbacks)
+        - [Function Returninng the Function](#function-returninng-the-function)
+        - [Call Method](#call-method)
+        - [Apply Method](#apply-method)
+        - [Bind Method](#bind-method)
+    - [Imediately Invoked Functions](#imediately-invoked-functions)
+  - [Arrays](#arrays)
+  - [Objects](#objects)
+  - [Sets](#sets)
+  - [Maps](#maps)
+  - [Working With String](#working-with-string)
+  - [Data Strucutres](#data-strucutres)
+    - [List of data Strucures](#list-of-data-strucures)
+    - [Sources of Data](#sources-of-data)
+    - [Usess of Arrays](#usess-of-arrays)
+    - [Usess of Sets](#usess-of-sets)
+    - [Usess of Object](#usess-of-object)
+    - [Usess of Maps](#usess-of-maps)
+    - [Basic Data Structures](#basic-data-structures)
+      - [Numbers](#numbers)
+      - [BigInt](#bigint)
+      - [Date](#date)
+      - [Intl NameSpace](#intl-namespace)
+  - [Loops](#loops)
+    - [For Loops](#for-loops)
+    - [For of loops](#for-of-loops)
+    - [ForEach loops](#foreach-loops)
+    - [Nested Loops](#nested-loops)
+    - [While loop](#while-loop)
+    - [Loop Control Statments](#loop-control-statments)
+      - [Continue](#continue)
+      - [Break](#break)
+  - [Timers](#timers)
+    - [SetTimeout](#settimeout)
+    - [setInterval](#setinterval)
+  - [DOM Manuplication](#dom-manuplication)
+    - [Accessing Dom Elements](#accessing-dom-elements)
+    - [Dom traversing](#dom-traversing)
+    - [Create New DOM Elements](#create-new-dom-elements)
+    - [Add Elements to the DOM](#add-elements-to-the-dom)
+    - [Remove Html Element](#remove-html-element)
+    - [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
+    - [Updating Styles Using Dom](#updating-styles-using-dom)
+    - [Changing the Atributes](#changing-the-atributes)
+    - [Events in DOM](#events-in-dom)
+  - [Short Circuiting](#short-circuiting)
+  - [Nullish Coalescing Operator](#nullish-coalescing-operator)
+  - [OOPS](#oops)
+    - [Class](#class)
+    - [THE 4 FUNDAMENTAL OOP PRINCIPLES](#the-4-fundamental-oop-principles)
+      - [Abstraction](#abstraction)
+      - [Encapsulation](#encapsulation)
+      - [Inheritance](#inheritance)
+      - [Polymorphism](#polymorphism)
+    - [Prototypal inheritance](#prototypal-inheritance)
+    - [3 WAYS OF IMPLEMENTING PROTOTYPAL INHERITANCE IN JAVASCRIPT](#3-ways-of-implementing-prototypal-inheritance-in-javascript)
+    - [Constructor Function](#constructor-function)
+    - [Prototypes](#prototypes)
+      - [THE PROTOTYPE CHAIN](#the-prototype-chain)
+    - [ES2015 Classes](#es2015-classes)
+    - [Getters and Setters](#getters-and-setters)
+    - [Object.create()](#objectcreate)
+    - [InHertience between Classes](#inhertience-between-classes)
+    - [Encapsulation](#encapsulation-1)
+    - [Chaining in Class methods](#chaining-in-class-methods)
+    - [Class in one Image](#class-in-one-image)
+  - [SYNCHRONOUS CODE](#synchronous-code)
+  - [ASYNCHRONOUS CODE](#asynchronous-code)
+  - [WHAT ARE AJAX CALLS?](#what-are-ajax-calls)
+  - [WHAT IS AN API?](#what-is-an-api)
+  - [WHAT HAPPENS WHEN WE ACCESS A WEB SERVER](#what-happens-when-we-access-a-web-server)
+  - [WHAT ARE PROMISES?](#what-are-promises)
+    - [Fetch API](#fetch-api)
+    - [THE PROMISE LIFECYCLE](#the-promise-lifecycle)
+  - [Developer Skills](#developer-skills)
+    - [HOW TO FAIL 🤦 AT LEARNING HOW TO CODE](#how-to-fail--at-learning-how-to-code)
+    - [HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE](#how-to-succeed--at-learning-how-to-code)
+    - [HOW TO FAIL 🤦 AT SOLVING PROBLEMS](#how-to-fail--at-solving-problems)
+    - [4 STEPS FRAMEWORK TO SOLVE ANY PROBLEM](#4-steps-framework-to-solve-any-problem)
+    - [WHAT IS A SOFTWARE BUG?](#what-is-a-software-bug)
+    - [THE DEBUGGING PROCESS](#the-debugging-process)
 
 ## Basis of JS
 
@@ -3117,6 +3125,140 @@ console.log(acc1.movements); // [300, 200, -400, 30, -4000]
 ![Class in one Image](./Images/Class.png)
 
 > Image by [Jonas Schmedtmann](https://twitter.com/jonasschmedtman)
+
+## SYNCHRONOUS CODE
+
+```js
+const p = document.querySelecter('.p');
+p.textContent = 'My name is Jonas!';
+alert('Text set!'); // Block the all code from running untill
+// you close the popup
+p.style.color = 'red';
+```
+
+-   👉 Most code is **synchronous**;
+-   👉 Synchronous code is **executed line by line**;
+-   👉 Each line of code **waits** for previous line to finish;
+-   👎 _Long-running operations **block** code execution_.
+
+## ASYNCHRONOUS CODE
+
+```js
+const p = document.querySelecter('.p');
+setTimeout(() => {
+    // ASYNCHRONOUS code NON-Blocking
+    p.textContent = 'My name is Jonas!';
+}, 5000);
+p.style.color = 'red';
+```
+
+-   👉 Asynchronous code is executed **after a task that runs in the _“background”_ finishes**;
+-   👍 Asynchronous code is **non-blocking**;
+-   👉 Execution doesn’t wait for an **asynchronous** task to finish its work;
+-   👉 Callback functions alone do **NOT** make code asynchronous!
+
+## WHAT ARE AJAX CALLS?
+
+-   **A**synchronous **J**avaScript **A**nd **X**ML: Allows us to communicate with remote web servers in an **asynchronous way**. With AJAX calls, we can **request data** from web servers dynamically.
+
+## WHAT IS AN API?
+
+-   👉 Application Programming Interface: Piece of software that can be used by another piece of software, in order to allow applications to talk to each other;
+
+-   👉 There are be many types of APIs in web development:
+
+    -   DOM API - Geolocation API - Own Class API - “Online” API
+
+-   👉 “Online” API: Application running on a server, that receives requests for data, and sends data back as response;
+
+-   👉 We can build our own web APIs (requires back-end development, e.g. with node.js) or use 3rd-party APIs.
+
+## WHAT HAPPENS WHEN WE ACCESS A WEB SERVER
+
+1. Browser checks for DNS entry to find the corresponding IP address of website.
+2. The requests are sent using small data packets that contain information content of request and IP address it is destined for.
+3. Browser initiates a TCP (Transfer Control Protocol) connection with the server.
+4. Browser sends an HTTP request to the web server. GET or POST request.
+5. Server on the host computer handles that request and sends back a response. It assembles a response in some format like JSON, XML and HTML.
+6. Server sends out an HTTP response along with the status of response.
+
+## WHAT ARE PROMISES?
+
+👉 Promise: An object that is used as a placeholder for the future result of an asynchronous operation.
+👉 Promise: A container for an asynchronously delivered value.
+👉 Promise: A container for a future value.
+👉 We no longer need to rely on events and callbacks passed into asynchronous functions to handle asynchronous results;
+👉 Instead of nesting callbacks, we can chain promises for a sequence of asynchronous operations: escaping callback hell 🎉
+
+`XMLHttpRequest()` requries a event Listener and callback to load a respomse
+
+```js
+const country = 'india';
+const request = new XMLHttpRequest(); // Create a Request
+request.open('GET', `https://restcountries.com/v2/name/${country}`); // Set the request server link
+request.send(); // Sending the request
+
+request.addEventListener('load', function () {
+    // checking for request to load
+    const response = JSON.parse(this.responseText);
+    console.log(response);
+});
+```
+
+Fetch API depends on promise
+
+```js
+const country = 'india';
+// request for data
+fetch(`https://restcountries.com/v2/name/${country}`)
+    // after coming the request converted to json
+    .then(response => response.json())
+    // After converted to json then renderCountry our Function is executed
+    .then(datts => renderCountry(datts));
+```
+
+### Fetch API
+
+```js
+const getJSON = (url, errorMsg = 'Something went Wrong') => {
+    return fetch(url).then(response => {
+        if (!response.ok) throw new Error(`${errorMsg} (${response.status})`); // 3. if response is not ok then throw the error
+        // that will catch by the catch function at the End
+        return response.json(); // 4. for ok response it will convert to json and send it
+    });
+};
+
+const getCountryData = country => {
+    btn.style.opacity = 0;
+    getJSON(`https://restcountries.com/v2/name/${country}`, 'Country not Found') // 2. getJson fun() will fetch the data
+        .then(datts => renderCountry(datts)) // 5. after getting the data renderCountry
+        // will run that will pprocess the data and display the country data
+        .catch(err => {
+            // 6. If any error encountered will these
+            // proceess it will display by the catch block
+            // throw are also deplayed here only
+            console.error(err, '🔥🔥🔥');
+            // renderError just append the text to html
+            renderError(`Something went wrong 🔥 🔥 ${err.message}. Try again`);
+        })
+        // 7. It will run no matter what status is ok or error
+        .finally(() => {
+            countriesContainer.style.opacity = 1;
+        });
+};
+
+btn.addEventListener('click', () => getCountryData('usa'));
+// 1. Data fetch gonna Start when btn is clicked
+```
+
+Above code is for fetching the country data abd display on Screen.
+
+### THE PROMISE LIFECYCLE
+
+1. Pending - **Before** the future value is available
+2. Settled - **Asynchronous** task has **finished**
+    - FULFILLED - **Success**! The value is now **available**
+    - REJECTED - An **error** happened
 
 ## Developer Skills
 
