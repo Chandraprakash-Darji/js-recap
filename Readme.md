@@ -111,6 +111,11 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
     - [Building the Promise](#building-the-promise)
     - [Async Await Function](#async-await-function)
     - [Promise Combinator](#promise-combinator)
+  - [AN OVERVIEW OF MODULES](#an-overview-of-modules)
+    - [WHY MODULES?](#why-modules)
+    - [NATIVE JAVASCRIPT (ES6) MODULES](#native-javascript-es6-modules)
+    - [HOW ES6 MODULES ARE IMPORTED](#how-es6-modules-are-imported)
+    - [Import and Export Modules](#import-and-export-modules)
   - [Developer Skills](#developer-skills)
     - [HOW TO FAIL 🤦 AT LEARNING HOW TO CODE](#how-to-fail--at-learning-how-to-code)
     - [HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE](#how-to-succeed--at-learning-how-to-code)
@@ -162,13 +167,13 @@ x = 1; // Throws an error because variable is not declared
 
 ## The 7 Primitive Data types
 
--   To check the Data type of any Varible / Value
+- To check the Data type of any Varible / Value
 
 ```js
 console.log(typeof 'ChandraPrakash');
 ```
 
--   Way of Declaring Variables
+- Way of Declaring Variables
 
 ```js
 var a; // variable
@@ -224,11 +229,11 @@ console.log(typeof myNull);
 
 ## Operators in JS
 
--   [Arithmetic Operators](#arithmetic-operators)
--   [Assignment Operators](#assignment-operators)
--   [Comparison Operators](#comparison-operators)
--   [Logical Operators](#logical-operators)
--   [Ternary Operators](#ternary-operators)
+- [Arithmetic Operators](#arithmetic-operators)
+- [Assignment Operators](#assignment-operators)
+- [Comparison Operators](#comparison-operators)
+- [Logical Operators](#logical-operators)
+- [Ternary Operators](#ternary-operators)
 
 ### Arithmetic Operators
 
@@ -243,7 +248,7 @@ console.log(2++); // Increment -> 3
 console.log(2--); // Decrement -> 1
 ```
 
--   Post and Pre Increment/Decrement
+- Post and Pre Increment/Decrement
 
 ```js
 let x = 5;
@@ -372,7 +377,7 @@ const myCopy = [...myArr]; // All elemt of myArr will be Copied
 `string text ${expression} string text`; // access any veriable by ${variable_name}
 ```
 
--   Without Template Literals
+- Without Template Literals
 
 ```js
 let a = 5,
@@ -382,7 +387,7 @@ console.log('Fifteen is ' + (a + b) + ' and \n not ' + (2 * a + b) + '.');
 // not 20."
 ```
 
--   With Template Literals
+- With Template Literals
 
 ```js
 let a = 5,
@@ -410,8 +415,8 @@ if (age >= 18) {
 
 ## Type Conversion and Coercion
 
--   [Type Conversion](#type-conversion) Changing type of the Data explicitly.
--   [Type Coercion](#type-coercion) Javascript changing type of the Data implicitly.
+- [Type Conversion](#type-conversion) Changing type of the Data explicitly.
+- [Type Coercion](#type-coercion) Javascript changing type of the Data implicitly.
 
 ### Type Conversion
 
@@ -563,14 +568,14 @@ console.log(flight, jonas); // LH123 {name: 'Mr.Jonas Schmendtmann', passport: 6
 
 ### First Class and Higher Order Function
 
--   First Class Function => JavaScript treats function as first-class Citizen =>
--   This means that functions are simply values =>
--   Functions are just another Object
--   Just a concept that a Programming Language as or not :::
+- First Class Function => JavaScript treats function as first-class Citizen =>
+- This means that functions are simply values =>
+- Functions are just another Object
+- Just a concept that a Programming Language as or not :::
 
 #### Some Properties of First-Class Functions
 
--   **Store Functions in Variables or Properties**
+- **Store Functions in Variables or Properties**
 
     ```js
     const add = (a, b) => a + b;
@@ -585,15 +590,15 @@ console.log(flight, jonas); // LH123 {name: 'Mr.Jonas Schmendtmann', passport: 6
     };
     ```
 
--   **Pass functions as Argumnets to OTHER functions**
+- **Pass functions as Argumnets to OTHER functions**
 
     ```js
     const greet = () => console.log('hey Chandr Prakash');
     btnClose.addEventListener('click', greet);
     ```
 
--   **Return Functon from Function**
--   **Call methods on functions:**
+- **Return Functon from Function**
+- **Call methods on functions:**
 
     ```js
     counter.inc.bind(someOtherObject);
@@ -601,8 +606,8 @@ console.log(flight, jonas); // LH123 {name: 'Mr.Jonas Schmendtmann', passport: 6
 
 ### Higher Order Functions
 
--   A function that **receives** another function as an argument, that **return** a new function, or **both**
--   Is in practise when lang => Supports the **First class Function**
+- A function that **receives** another function as an argument, that **return** a new function, or **both**
+- Is in practise when lang => Supports the **First class Function**
 
 #### Some Properties of Higher-Order Functions
 
@@ -1704,10 +1709,10 @@ flights.split('+').forEach(flightEntrie => {
 
 ### List of data Strucures
 
--   [Arrays](#arrays)
--   [Objects](#objects)
--   [Sets](#sets)
--   [Maps](#maps)
+- [Arrays](#arrays)
+- [Objects](#objects)
+- [Sets](#sets)
+- [Maps](#maps)
 
 ### Sources of Data
 
@@ -1719,52 +1724,56 @@ flights.split('+').forEach(flightEntrie => {
 
 ### Usess of Arrays
 
--   ```js
+- ```js
     const task = ['eat', 'code', 'sleep', 'repeat'];
     ```
--   Use when you need ordered list of values (might contain duplicates)
--   Use when you need to manipulate data
+
+- Use when you need ordered list of values (might contain duplicates)
+- Use when you need to manipulate data
 
 ### Usess of Sets
 
--   ```js
+- ```js
     const = new Set(['eat', 'code', 'sleep', 'repeat']);
     ```
--   Use when you need to work with unique values
--   Use when high-performance is really important
--   Use to remove duplicates from arrays
+
+- Use when you need to work with unique values
+- Use when high-performance is really important
+- Use to remove duplicates from arrays
 
 ### Usess of Object
 
--   ```js
+- ```js
     const task = {
         task: 'code',
         date: 'today',
         repeat: true,
     };
     ```
--   More “traditional” key/value store (“abused” objects)
--   Easier to write and access values with . and []
--   Use when you simply need to map key to values
--   Use when you need keys that are not strings
--   Use when you need to include functions (methods)
--   Use when working with JSON (can convert to map)
+
+- More “traditional” key/value store (“abused” objects)
+- Easier to write and access values with . and []
+- Use when you simply need to map key to values
+- Use when you need keys that are not strings
+- Use when you need to include functions (methods)
+- Use when working with JSON (can convert to map)
 
 ### Usess of Maps
 
--   ```js
+- ```js
     const task = new Map([
         ['task', 'Code'],
         ['date', 'today'],
         [false, 'Start Coding'],
     ]);
     ```
--   Better performance
--   Keys can have any data type
--   Easy to iterate
--   Easy to compute size
--   Use when you simply need to map key to values
--   Use when you need keys that are not strings
+
+- Better performance
+- Keys can have any data type
+- Easy to iterate
+- Easy to compute size
+- Use when you simply need to map key to values
+- Use when you need keys that are not strings
 
 ### Basic Data Structures
 
@@ -2210,14 +2219,14 @@ DOM tree Structure
 DOM is not Part of JavaScript ...
 Javscript interact with DOM by WEB API's that browser Implements ...
 
--   [Accessing Dom Elements](#accessing-dom-elements)
--   [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
--   [Create New DOM Elements](#create-new-dom-elements)
--   [Add Elements to the DOM](#add-elements-to-the-dom)
--   [Remove Html Element](#remove-html-element)
--   [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
--   [Updating Styles Using Dom](#updating-styles-using-dom)
--   [Changing the Atributes](#changing-the-atributes)
+- [Accessing Dom Elements](#accessing-dom-elements)
+- [Grab Children/Parent Node(s)](#grab-childrenparent-nodes)
+- [Create New DOM Elements](#create-new-dom-elements)
+- [Add Elements to the DOM](#add-elements-to-the-dom)
+- [Remove Html Element](#remove-html-element)
+- [Add/Remove/Toggle/Check Classes](#addremovetogglecheck-classes)
+- [Updating Styles Using Dom](#updating-styles-using-dom)
+- [Changing the Atributes](#changing-the-atributes)
 
 ### Accessing Dom Elements
 
@@ -2554,13 +2563,13 @@ console.log(guestCorrect);
 
 ## OOPS
 
--   👉 Object-oriented programming (OOP) is a programming paradigm based on the concept of objects;
--   👉 We use objects to model (describe) real-world or abstract features;
--   👉 Objects may contain data (properties) and code (methods). By using objects, we pack data and the corresponding behavior into one block;
--   👉 In OOP, objects are self-contained pieces/blocks of code;
--   👉 Objects are building blocks of applications, and interact with one another;
--   👉 Interactions happen through a public interface (API): methods that the code outside of the object can access and use to communicate with the object;
--   👉 OOP was developed with the goal of organizing code, to make it more flexible and easier to maintain (avoid “spaghetti code”).
+- 👉 Object-oriented programming (OOP) is a programming paradigm based on the concept of objects;
+- 👉 We use objects to model (describe) real-world or abstract features;
+- 👉 Objects may contain data (properties) and code (methods). By using objects, we pack data and the corresponding behavior into one block;
+- 👉 In OOP, objects are self-contained pieces/blocks of code;
+- 👉 Objects are building blocks of applications, and interact with one another;
+- 👉 Interactions happen through a public interface (API): methods that the code outside of the object can access and use to communicate with the object;
+- 👉 OOP was developed with the goal of organizing code, to make it more flexible and easier to maintain (avoid “spaghetti code”).
 
 ### Class
 
@@ -2590,28 +2599,28 @@ A child class can overwrite a method it inherited from a parent class [it’s mo
 
 ### Prototypal inheritance
 
--   👉 Objects are linked to a prototype object;
--   👉 Prototypal inheritance: The prototype contains methods (behavior) that are accessible to all objects linked to that prototype;
--   👉 Behavior is delegated to the linked prototype object
+- 👉 Objects are linked to a prototype object;
+- 👉 Prototypal inheritance: The prototype contains methods (behavior) that are accessible to all objects linked to that prototype;
+- 👉 Behavior is delegated to the linked prototype object
 
 ### 3 WAYS OF IMPLEMENTING PROTOTYPAL INHERITANCE IN JAVASCRIPT
 
 1. Constructor functions
 
--   👉 Technique to create objects from a function;
--   👉 This is how built-in objects like Arrays, Maps or Sets are actually implemented.
--   [Constructor Function](#constructor-function)
+- 👉 Technique to create objects from a function;
+- 👉 This is how built-in objects like Arrays, Maps or Sets are actually implemented.
+- [Constructor Function](#constructor-function)
 
 2. ES6 Classes
 
--   👉 Modern alternative to constructor function syntax;
--   👉 “Syntactic sugar”: behind the scenes, ES6 classes work exactly like constructor functions;
--   👉 ES6 classes do NOT behave like classes in “classical OOP” (last lecture).
--   [ES2015 Classes](#es2015-classes)
+- 👉 Modern alternative to constructor function syntax;
+- 👉 “Syntactic sugar”: behind the scenes, ES6 classes work exactly like constructor functions;
+- 👉 ES6 classes do NOT behave like classes in “classical OOP” (last lecture).
+- [ES2015 Classes](#es2015-classes)
 
 1. Object.create()
 
--   👉 The easiest and most straightforward way of linking an object to a prototype object.
+- 👉 The easiest and most straightforward way of linking an object to a prototype object.
 
 ### Constructor Function
 
@@ -3139,10 +3148,10 @@ alert('Text set!'); // Block the all code from running untill
 p.style.color = 'red';
 ```
 
--   👉 Most code is **synchronous**;
--   👉 Synchronous code is **executed line by line**;
--   👉 Each line of code **waits** for previous line to finish;
--   👎 _Long-running operations **block** code execution_.
+- 👉 Most code is **synchronous**;
+- 👉 Synchronous code is **executed line by line**;
+- 👉 Each line of code **waits** for previous line to finish;
+- 👎 _Long-running operations **block** code execution_.
 
 ## ASYNCHRONOUS CODE
 
@@ -3155,26 +3164,26 @@ setTimeout(() => {
 p.style.color = 'red';
 ```
 
--   👉 Asynchronous code is executed **after a task that runs in the _“background”_ finishes**;
--   👍 Asynchronous code is **non-blocking**;
--   👉 Execution doesn’t wait for an **asynchronous** task to finish its work;
--   👉 Callback functions alone do **NOT** make code asynchronous!
+- 👉 Asynchronous code is executed **after a task that runs in the _“background”_ finishes**;
+- 👍 Asynchronous code is **non-blocking**;
+- 👉 Execution doesn’t wait for an **asynchronous** task to finish its work;
+- 👉 Callback functions alone do **NOT** make code asynchronous!
 
 ## WHAT ARE AJAX CALLS?
 
--   **A**synchronous **J**avaScript **A**nd **X**ML: Allows us to communicate with remote web servers in an **asynchronous way**. With AJAX calls, we can **request data** from web servers dynamically.
+- **A**synchronous **J**avaScript **A**nd **X**ML: Allows us to communicate with remote web servers in an **asynchronous way**. With AJAX calls, we can **request data** from web servers dynamically.
 
 ## WHAT IS AN API?
 
--   👉 Application Programming Interface: Piece of software that can be used by another piece of software, in order to allow applications to talk to each other;
+- 👉 Application Programming Interface: Piece of software that can be used by another piece of software, in order to allow applications to talk to each other;
 
--   👉 There are be many types of APIs in web development:
+- 👉 There are be many types of APIs in web development:
 
-    -   DOM API - Geolocation API - Own Class API - “Online” API
+  - DOM API - Geolocation API - Own Class API - “Online” API
 
--   👉 “Online” API: Application running on a server, that receives requests for data, and sends data back as response;
+- 👉 “Online” API: Application running on a server, that receives requests for data, and sends data back as response;
 
--   👉 We can build our own web APIs (requires back-end development, e.g. with node.js) or use 3rd-party APIs.
+- 👉 We can build our own web APIs (requires back-end development, e.g. with node.js) or use 3rd-party APIs.
 
 ## WHAT HAPPENS WHEN WE ACCESS A WEB SERVER
 
@@ -3403,86 +3412,196 @@ Promise.any([
     .catch(err => console.error(err));
 ```
 
+## AN OVERVIEW OF MODULES
+
+- 👉 Reusable piece of code that encapsulates implementation details;
+- 👉 Usually a standalone file, but it doesn’t have to be.
+
+### WHY MODULES?
+
+- 👉 Compose software: Modules are small building blocks that we put together to build complex applications;
+- 👉 Isolate components: Modules can be developed in isolation without thinking about the entire codebase;
+- 👉 Abstract code: Implement low-level code in modules and import these abstractions into other modules;
+- 👉 Organized code: Modules naturally lead to a more organized codebase;
+- 👉 Reuse code: Modules allow us to easily reuse the same code, even across multiple projects.
+
+### NATIVE JAVASCRIPT (ES6) MODULES
+
+**ES6 MODULES** Modules stored in files, exactly one module per file.
+
+||ES6 MODULE|SCRIPT|
+|:---|:---:|:---:|
+|👉 Top-level variables|Scoped to module |Global|
+|👉 Default mode|Strict mode |“Sloppy” mode|
+|👉 Top-level this|undefined| window|
+|👉 Imports and exports|✅ YES| 🚫 NO|
+|👉 HTML linking|`<script type="module">`| `<script>`|
+|👉 File downloading|Asynchronous|Synchronous|
+
+### HOW ES6 MODULES ARE IMPORTED
+
+- 👉 Modules are imported synchronously
+- 👉 Possible thanks to top-level (“static”) imports, which make imports known before execution
+- 👉 This makes bundling and dead code elimination possible
+
+```js
+import {rand} from '.math.js' 
+// rand is not copied from math.js it is Refrenced
+import {showDice} from '.dom.js'
+const dice = rand(1,6,2)
+showDice(dice)
+```
+
+This is the process of How the module file is processed.
+
+||⬇  Parsing index.js  ⬇||
+|:---|:---:|:---:|
+|Asynchronous downloading math.js  ⬇||⬇  Asynchronous downloading dom.js|
+|Linking imports to math.js exports  ⬇||⬇  Linking imports to dom.js exports|
+|Execution math.js  ⬇||⬇  Execution dom.js|
+||Execution index.js||
+
+### Import and Export Modules
+
+1. Named Import/Export
+
+    ```js
+    export const addToCart = function (product, quantity) {
+    cart.push({ product, quantity });
+    console.log(`${quantity} ${product} added to cart`);
+    };
+    ```
+
+    Function is Exported as name `addToCart()`
+
+    ```js
+     import { addToCart } from './shopingCart.js'
+    ```
+
+    Importing Should have same name as export.
+
+2. Import Everything
+
+   ```js
+    import * as ShoppingCart from './shopingCart.js';
+   ```
+
+    Everthing will be available to use now in your code.
+
+    To use you need to use name space as module name
+
+    ```js
+    console.log(ShoppingCart.totalPrice, ShoppingCart.qt, ShoppingCart.cart);
+    ```
+
+3. Default Import/Export
+
+    ```js
+    export default '22332';
+    ```
+
+    Exporting the Module.
+
+    ```js
+    import num from './shopingCart.js';
+    ```
+
+    Importing as any name as you want.
+
+4. Changing name while importing/Exporting
+
+    ```js
+    export { totalPrice, totalQuatity as qt };
+    ```
+
+    Changing while Exporting
+
+    ```js
+    import { tq, totalPrice as price } from './shopingCart.js';
+    ```
+
+    Changing while Importing
+
 ## Developer Skills
 
 ### HOW TO FAIL 🤦 AT LEARNING HOW TO CODE
 
--   💥 He didn’t have a clear goal at the beginning of his journey.
--   💥 He started by watching courses and reading tutorials, but he would just copy. the code without caring how it works. Sometimes he would just copy and paste code!
--   💥 He didn’t reinforce what he was learning by doing small challenges or taking notes.
--   💥 He didn’t practice coding, and didn’t come up with his own project ideas.
--   💥 He quickly became frustrated when his code was not perfectly clean or efficient.
--   💥 He lost motivation because he thought he could never know everything.
--   💥 He was learning in isolation.
--   💥 After finishing a couple of courses, he thought he now was a web developer and could start applying to jobs. But he couldn’t even build an app on his own!
+- 💥 He didn’t have a clear goal at the beginning of his journey.
+- 💥 He started by watching courses and reading tutorials, but he would just copy. the code without caring how it works. Sometimes he would just copy and paste code!
+- 💥 He didn’t reinforce what he was learning by doing small challenges or taking notes.
+- 💥 He didn’t practice coding, and didn’t come up with his own project ideas.
+- 💥 He quickly became frustrated when his code was not perfectly clean or efficient.
+- 💥 He lost motivation because he thought he could never know everything.
+- 💥 He was learning in isolation.
+- 💥 After finishing a couple of courses, he thought he now was a web developer and could start applying to jobs. But he couldn’t even build an app on his own!
 
 ### HOW TO SUCCEED 🎉 AT LEARNING HOW TO CODE
 
--   💥 He didn’t have a clear goal at the beginning of his journey.
+- 💥 He didn’t have a clear goal at the beginning of his journey.
 
-    -   👌 Set a specific, measurable, realistic and time-based goal
-    -   👌 Know exactly why you are learning to code: Switching careers? Finding a better job?
-    -   👌 Imagine a big project you want to be able to build!
-    -   👌 Research technologies you need and then learn them.
+  - 👌 Set a specific, measurable, realistic and time-based goal
+  - 👌 Know exactly why you are learning to code: Switching careers? Finding a better job?
+  - 👌 Imagine a big project you want to be able to build!
+  - 👌 Research technologies you need and then learn them.
 
--   💥 He would just copy the code without caring how it works. Sometimes he would just copy and paste code!
+- 💥 He would just copy the code without caring how it works. Sometimes he would just copy and paste code!
 
-    -   👌 Understand the code that you’re studying and typing
-    -   👌 Always type the code, don’t copy-paste!
+  - 👌 Understand the code that you’re studying and typing
+  - 👌 Always type the code, don’t copy-paste!
 
--   💥 He didn’t reinforce what he was learning by doing small challenges or taking notes.
+- 💥 He didn’t reinforce what he was learning by doing small challenges or taking notes.
 
-    -   👌 After you learn a new feature or concept, use it immediately.
-    -   👌 Take notes
-    -   👌 Challenge yourself and practice with small coding exercises and challenges.
-    -   👌 Don’t be in a hurry to complete the course fast!
+  - 👌 After you learn a new feature or concept, use it immediately.
+  - 👌 Take notes
+  - 👌 Challenge yourself and practice with small coding exercises and challenges.
+  - 👌 Don’t be in a hurry to complete the course fast!
 
--   💥 He didn’t practice coding, and didn’t come up with his own project ideas.
+- 💥 He didn’t practice coding, and didn’t come up with his own project ideas.
 
-    -   👌 Practicing on your own is the most important thing to do.
-    -   👌 This is NOT optional! Without practice outside of courses, you won’t go anywhere!
-    -   👌 Come up with your own project ideas or copy popular sites or applications, or just parts of them in the beginning.
-    -   👌 Don’t be stuck in “tutorial hell”
+  - 👌 Practicing on your own is the most important thing to do.
+  - 👌 This is NOT optional! Without practice outside of courses, you won’t go anywhere!
+  - 👌 Come up with your own project ideas or copy popular sites or applications, or just parts of them in the beginning.
+  - 👌 Don’t be stuck in “tutorial hell”
 
--   💥 He quickly became frustrated when his code was not perfectly clean or efficient.
+- 💥 He quickly became frustrated when his code was not perfectly clean or efficient.
 
-    -   👌 Don’t get stuck trying to write the perfect code!
-    -   👌 Just write tons of code, no matter the quality!
-    -   👌 Clean and efficient code will come with time.
-    -   👌 You can always refactor code later.
+  - 👌 Don’t get stuck trying to write the perfect code!
+  - 👌 Just write tons of code, no matter the quality!
+  - 👌 Clean and efficient code will come with time.
+  - 👌 You can always refactor code later.
 
--   💥 He lost motivation because he thought he could never know everything.
+- 💥 He lost motivation because he thought he could never know everything.
 
-    -   👌 Embrace the fact that you will nesver you know everything.
-    -   👌 Just focus on what you need to achieve your goal!
+  - 👌 Embrace the fact that you will nesver you know everything.
+  - 👌 Just focus on what you need to achieve your goal!
 
--   💥 He was learning in isolation.
+- 💥 He was learning in isolation.
 
-    -   👌 Explain new concepts to other people. If you can explain it, you truly understand it!
-    -   👌 Share your goals to make yourself accountable.
-    -   👌 Share your learning progress with the web dev community (#100DaysOfCode, #CodeNewbie, #webdev, etc).
+  - 👌 Explain new concepts to other people. If you can explain it, you truly understand it!
+  - 👌 Share your goals to make yourself accountable.
+  - 👌 Share your learning progress with the web dev community (#100DaysOfCode, #CodeNewbie, #webdev, etc).
 
--   💥 After finishing a couple of courses, he thought he now was a web developer and could start applying to jobs.
+- 💥 After finishing a couple of courses, he thought he now was a web developer and could start applying to jobs.
 
-    -   👌 The biggest misconception that people have!
-    -   👌 Courses are an amazing starting point, but are only the beginning of your journey.
+  - 👌 The biggest misconception that people have!
+  - 👌 Courses are an amazing starting point, but are only the beginning of your journey.
 
 ![howtocodeprocess](./Images/Codingprocess.png)
 
 ### HOW TO FAIL 🤦 AT SOLVING PROBLEMS
 
--   **WHENEVER JOHN ENCOUNTERS A PROBLEM:**
+- **WHENEVER JOHN ENCOUNTERS A PROBLEM:**
 
-    -   💥 He jumps at the problem without much thinking.
-    -   💥 He implements his solution in an unstructured way.
-    -   💥 He gets stressed out when things don’t work.
-    -   💥 He is too proud to research solutions.
+  - 💥 He jumps at the problem without much thinking.
+  - 💥 He implements his solution in an unstructured way.
+  - 💥 He gets stressed out when things don’t work.
+  - 💥 He is too proud to research solutions.
 
--   **FIX**
+- **FIX**
 
-    -   💥 Stay calm and slow down, don’t just jump at a problem without a plan.
-    -   💥 Take a very logical and rational approach (programming is just logic, in the end…).
-    -   💥 Use my 4-step framework to solve any problem.
+  - 💥 Stay calm and slow down, don’t just jump at a problem without a plan.
+  - 💥 Take a very logical and rational approach (programming is just logic, in the end…).
+  - 💥 Use my 4-step framework to solve any problem.
 
 ### 4 STEPS FRAMEWORK TO SOLVE ANY PROBLEM
 
@@ -3493,32 +3612,32 @@ Promise.any([
 
 ### WHAT IS A SOFTWARE BUG?
 
--   💥 Software bug: Defect or problem in a computer program. Basically, any unexpected or unintended behavior of a computer program is a software bug.
--   💥 Bugs are completely normal in software development!
--   💥 Debugging: Process of finding, fixing and preventing bugs.
+- 💥 Software bug: Defect or problem in a computer program. Basically, any unexpected or unintended behavior of a computer program is a software bug.
+- 💥 Bugs are completely normal in software development!
+- 💥 Debugging: Process of finding, fixing and preventing bugs.
 
 ### THE DEBUGGING PROCESS
 
 1. Identify
 
--   👉 During development
--   👉 Testing software
--   👉 User reports duringproduction
--   👉 Context: browsers,users, etc.
+- 👉 During development
+- 👉 Testing software
+- 👉 User reports duringproduction
+- 👉 Context: browsers,users, etc.
 
 2. Find
 
--   👉 Developer console (simple code)
--   👉 Debugger (complexcode)
+- 👉 Developer console (simple code)
+- 👉 Debugger (complexcode)
 
 3. Fix
 
--   👉 Replace wrong solution with new correct solution
+- 👉 Replace wrong solution with new correct solution
 
 4. Prevent
 
--   👉 Searching for thesame bug in similar code
--   👉 Writing tests usingtesting software
+- 👉 Searching for thesame bug in similar code
+- 👉 Writing tests usingtesting software
 
 <!--
 ## How JavaScript Works
