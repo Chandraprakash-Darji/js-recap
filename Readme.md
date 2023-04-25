@@ -1,6 +1,6 @@
 # Notes for Javascript
 
-**[Live Site Link](https://chandraprakash-darji.github.io/Advance-JS-notes-InComplete/)**
+**[Live Site Link](https://chandraprakash-darji.github.io/js-recap/)**
 
 _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for amazing content that i learned)_
 
