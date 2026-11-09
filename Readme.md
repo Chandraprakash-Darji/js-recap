@@ -69,7 +69,7 @@ _(Credits [Jonas Schmedtmann](https://twitter.com/jonasschmedtman) JS Course for
   - [Timers](#timers)
     - [SetTimeout](#settimeout)
     - [setInterval](#setinterval)
-  - [DOM Manuplication](#dom-manuplication)
+  - [DOM Manipulation](#dom-manipulation)
     - [Accessing Dom Elements](#accessing-dom-elements)
     - [Dom traversing](#dom-traversing)
     - [Create New DOM Elements](#create-new-dom-elements)
@@ -2209,7 +2209,7 @@ setInterval(() => {
 }, 1000);
 ```
 
-## DOM Manuplication
+## DOM Manipulation
 
 **Document Object Model** Structured Representation Of Html Documents. Allows Javascript To Access Html Elements And Styles To Manipulate Them.
 
